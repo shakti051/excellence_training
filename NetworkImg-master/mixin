@@ -1,0 +1,27 @@
+mixin Agility{
+  var speed = 10;
+  void sitDowm(){
+    print("Sitting down...");
+  }
+}
+
+
+class Mammel{
+  void breath(){
+    print("Breadth...in Breadth...out");
+  }
+}
+
+class Person extends Mammel with Agility {
+  String name;
+  int age;
+  Person(this.name,this.age);
+}
+
+void main(){
+  final pers = Person("Max Jonson",22);
+  print(pers.name);
+ pers.breath();
+  print(pers.speed);
+  pers.sitDowm();
+}

@@ -1,0 +1,20 @@
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.blueGrey,
+        appBar: (AppBar(
+          title: Text('I am Mob App developer '),
+          backgroundColor: Colors.blueGrey[900],
+          centerTitle: true,
+        )),
+        body: Center(
+          child: Image(
+            image: AssetImage('images/landscape.jpg'),
+          ),
+        ),
+      ),
+    ),
+  );
+}

@@ -1,0 +1,20 @@
+import 'dart:convert';
+
+void main() {
+  var rawJson = '{"url":"http:/blah.jpg","id":1}';  
+  var parsedJson = json.decode(rawJson);
+ // print(parsedJson["id"]);
+  //var imageModel = new ImageModel(parsedJson["url"],parsedJson["id"]);
+  var imageModel = new ImageModel.fromJson(parsedJson);
+  print(imageModel.url);
+}
+
+class ImageModel{
+  int id;
+  String url;
+  ImageModel(this.url,this.id);
+  ImageModel.fromJson(parsedJson){
+    url = parsedJson["url"];
+    id = parsedJson["id"];
+  }
+}

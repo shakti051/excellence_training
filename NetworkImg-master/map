@@ -1,0 +1,81 @@
+void main() {
+//   var person = <String,dynamic>{
+//     'name':'Shubham',
+//     'age':27,
+//     'height':1.84
+//   };
+  
+//   var name = person['name'] as String;
+//   print(name);
+//   person['age']= 23;
+//   person['likesPizza'] = true;
+//   print(person);
+  
+//   var weight = person['weight'];
+//   print(weight);
+//   if( weight== null){
+//     print('no value');
+//   }else{
+//     print(weight);
+//   }
+  
+//   for(var key in person.keys){
+//     print(person[key]);
+//   }
+  
+//   for(var value in person.values){
+//     print(value);
+//   }
+  
+//   for(var entry in person.entries){
+//     print("${entry.key} : ${entry.value}");
+//   }
+  
+  const pizzaPrices = {
+  'margherita': 5.5,
+  'pepperoni': 7.5,
+  'vegetarian': 6.5,
+};
+  
+  const order = ['margherita', 'pepperoni'];
+  var total = 0.0;
+  for(var item in order){
+    final price = pizzaPrices[item];
+    if(price!=null){
+      total += price;
+    }else{
+      print("$item pizza is not in the menu");
+    }
+  }
+  print("The total is \$$total");
+  /**Map with List**/
+  var restaurants = [
+    {
+      'name': 'Pizza Mario',
+      'cuisine': 'Italian',
+      'ratings': [5.0, 3.5, 4.5],
+    },
+    {
+      'name': 'Chez Anne',
+      'cuisine': 'French',
+      'ratings': [5.0, 4.5, 4.0],
+    },
+    {
+      'name': 'Navaratna',
+      'cuisine': 'Indian',
+      'ratings': [4.0, 4.5, 4.0],
+    },
+  ];
+  for (var restaurant in restaurants) {
+    final ratings = restaurant['ratings'] as List<double>;
+    var total = 0.0;
+    for (var rating in ratings) {
+      total += rating;
+    }
+    final avgRating = total / ratings.length;
+    restaurant['avgRating'] = avgRating;
+    print(restaurant);
+  } 
+
+ 
+}

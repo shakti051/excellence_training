@@ -1,0 +1,31 @@
+
+void main() {
+final colors = ['grey','brown'];
+  const addBlue = false;
+  const addRed = true;
+  //const extraColor = ['yello','green'];
+  const addextraColor = true;
+  
+  if(addBlue){
+    colors.add('blue');
+  }if(addRed){
+    colors.add('red');
+  }
+  
+  final colors2 = ['grey','brown',
+                 if(addBlue)
+                  'blue',
+                  if(addRed)
+                  'red',
+                  if(addextraColor)
+                   ...['yello','green'],
+                   //                 ...extraColor
+//                    for(var color in extraColor)
+//                    color,
+                 ];
+  print(colors);
+ // print(colors2);
+  //colors2.addAll(extraColor);
+  print(colors2);
+  
+}

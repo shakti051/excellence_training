@@ -1,0 +1,58 @@
+import 'dart:async';
+  
+  class Cake{}
+  class Order{
+    String type;
+    Order(this.type);
+  }
+  
+  void main(){
+  final controller = new StreamController();
+  final order = new Order('chocolate');
+  final baker = new StreamTransformer.fromHandlers(
+  handleData:(cakeType,sink){
+    if(cakeType == 'chocolate'){
+      sink.add(new Cake());
+    }else sink.addError('I cant bake this type');
+  }
+  );  
+    
+    controller.sink.add(order);
+    controller.stream.map((order)=>order.type)
+      .transform(baker)
+      .listen((cake)=> print('Here is your cake'),
+             onError:(err)=>print(err)
+             );
+}
+
+// Adding email n password using stream:-
+
+import 'dart:async';
+
+void main() {
+  final bloc = new Bloc();
+  
+//   bloc.emailController.stream.listen((value) {
+//     print(value);
+//   });
+
+  bloc.email.listen((value){
+      print(value);      
+  });
+  
+ // bloc.emailController.sink.add('My New Email');
+  bloc.changeEmail('your email ');
+}
+
+class Bloc {
+  final emailController = StreamController<String>();
+  final passwordController = StreamController<String>();
+  // add data to stream 
+Function(String) get changeEmail => emailController.sink.add;
+Function(String) get changePassword => passwordController.sink.add;
+  // retrive data form stream
+Stream<String> get email => emailController.stream;
+Stream<String> get password => passwordController.stream;
+}
+
+

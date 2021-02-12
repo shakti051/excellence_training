@@ -1,0 +1,134 @@
+/**class Introduction**/
+class BankAccount {
+  BankAccount({
+    required this.accountHolder,
+    this.balance = 0,
+  });
+
+//     : accountHolder = accountHolder,
+//         balance = balance;
+  //   BankAccount(double balance) {
+//    this.balance = balance;
+//   }
+  final  String accountHolder;
+  double balance;
+
+  void deposit(double amount) {
+    balance += amount;
+  }
+
+  bool withdraw(double amount) {
+    if (balance > amount) {
+      balance -= amount;
+      return true;
+    } else
+      return false;
+  }
+}
+
+/**Person Class**/
+
+class Person {
+  Person({
+    required this.name,
+    required this.age,
+    required this.height,
+  });
+  final String name;
+  final int age;
+  final double height;
+
+  void printDescription() {
+    print("My name is $name. I'm $age years old, I'm $height meters tall.");
+  }
+}
+
+void main() {
+  final p1 = Person(name: 'Andrea', age: 36, height: 1.84);
+  final p2 = Person(name: 'Lucy', age: 44, height: 1.76);
+  p1.printDescription();
+  p2.printDescription();
+}
+
+/**Const Constructor**/
+
+class Complex{
+  final  double re;
+  final double im;
+  const Complex(this.re,this.im);
+  Complex.zero():re =0,im=1;
+}
+
+void main() {
+final zero = Complex.zero();
+  print(zero.im);
+}
+
+/**Named constuctor**/
+
+class Temperature{
+  double celsius;
+  Temperature.celsius(this.celsius);
+  Temperature.ferenhight(double ferenhight):celsius = (ferenhight -32)/1.8;
+  double get ferenhight => celsius *1.8 +32;
+  set ferenhight(double ferenhight)=>celsius = (ferenhight -32)/1.8;
+}
+
+void main() {
+  final temp1 =  Temperature.celsius(30) ;
+  final temp2 =  Temperature.ferenhight(98) ;
+  print(temp1.celsius);
+  print(temp2.celsius);
+  temp2.ferenhight = 100;
+   print(temp2.celsius);
+  temp1.ferenhight = 80;
+  print(temp1.celsius);
+}
+
+/**Restorent Rating**/
+void main() {
+  var restaurants = [
+    {
+      'name': 'Pizza Mario',
+      'cuisine': 'Italian',
+      'ratings': [5.0, 3.5, 4.5],
+    },
+    {
+      'name': 'Chez Anne',
+      'cuisine': 'French',
+      'ratings': [5.0, 4.5, 4.0],
+    },
+    {
+      'name': 'Navaratna',
+      'cuisine': 'Indian',
+      'ratings': [4.0, 4.5, 4.0],
+    },
+  ];
+  for(var restaurant in restaurants) {
+    final ratings = restaurant['ratings'] as List<double>;
+    var total = 0.0;
+    for (var rating in ratings) {
+      total += rating;
+    }
+    final avgRating = total / ratings.length;
+    restaurant['avgRating'] = avgRating;
+    print(restaurant);
+  }
+}
+
+/**static method n variable**/
+
+class Strings{
+  static const welcome = 'Welcome';
+  static const signIn = 'SignIn';
+  static String geet(String name)=> 'Hi , $name';
+}
+
+void main() {
+  print(Strings.welcome);
+  print(Strings.signIn);
+  print(Strings.geet('Kartik')); 
+}
+
+
+

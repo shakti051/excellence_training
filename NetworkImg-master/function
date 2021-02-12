@@ -1,0 +1,161 @@
+//sum of list 
+void main() {
+  print(sum([1,2]));
+}
+
+double sum(List<double> values){
+  var sum = 0.0;
+  for(var value in values){
+    sum += value;
+  }
+  return sum;
+}\
+
+/**Positional Argument**/
+void main() {
+final person = describe('Shubham',24);
+print(person);
+}
+
+String describe(String name,int age){
+  return 'My name is $name , Im $age old';
+}
+
+/**Named Argument**/
+
+void main() {
+final person = describe(name:'Shubham',age:34);
+print(person);
+}
+
+String describe({String name,int age}){
+  return 'My name is $name , Im $age old';
+}
+
+/**Mixed named n positioned argument**/
+
+void main() {
+foo(12,b: 1,c: 32);
+}
+
+
+void foo (int a,{int b = 0,int c = -1}){
+  print('a: $a,b: $b,c: $c');
+}
+
+/**Anonymous Function n typedef **/
+
+typedef Greet = String Function(String);
+//typedef String Greet(String);
+String sayHi(String name)=> 'Hi , $name';
+String sayHola(String name)=> 'Hola , $name';
+String saybananza(String name)=> 'Bananza , $name';
+
+void main() {
+//final sayHi = (String name)=> 'Hi , $name';
+// print(sayHi('Shubham Mishra'));
+welcome(sayHola,"Kartik Mishra");
+  
+}
+
+void welcome(String Function (String)greet,String name){
+  print(greet(name));
+  print('welcome to this course');
+}
+
+/**List**/
+
+void main() {
+const list = [1,2,3];
+const l2 = [1.0,2.3,4.0];
+  
+list.forEach((x)=> print(x));
+//  list.forEach(print);
+//   for(var value in list){
+//     print(value);
+//   }
+// final doubles = list.map((value)=>value*2);
+//   print(doubles);
+//   final List<int> doubles1 = list.map((value)=>value*2).toList();
+//   print(doubles1);
+//   final doubles3 = doubleItems(list);
+//   print(doubles3);
+     final doubles4 = transform<int>(list,(x)=>x*2); 
+      print(doubles4);
+     final squares = transform<int>(list,(x)=>x*x); 
+      print(squares);
+  final squares1 = transform<double>(l2,(x)=>x*x); 
+      print(squares1);
+// final doubles2 = [];
+//   for(var value in list){
+//     doubles2.add(value*2);
+//   }
+}
+
+List<T> transform<T>(List<T> items,T Function(T)f ){
+  var result = <T>[];
+  for(var x in items){
+    result.add(f(x));
+  }
+  return result;
+}
+
+List<int> doubleItems(List<int> items){
+  var result = <int>[];  
+  for(var x in items){
+    result.add(x*2);
+  }
+  return result;
+}
+
+
+/**Where n firstWhere**/
+
+void main() {
+  const list = [1,2,3,4]; 
+  final even = list.where((value)=> (value)%2==0);
+  print(even);
+  final value = list.firstWhere((x)=>x==4,orElse:()=> -1);
+  print(value);
+}
+/**find odd number using Generics**/
+
+
+void main() {
+  const list = [1, 2, 3, 4];
+  final odd = where<int>(list, (value) => value % 2 == 1);
+  print(odd);
+}
+
+List<T> where<T>(List<T> items, bool Function(T) f) {
+  var results = <T>[];
+  for (var item in items) {
+    if (f(item)) {
+      results.add(item);
+    }
+  }
+  return results;
+}
+
+/**firstWhere with Generics**/
+
+void main() {
+  const list = [1, 2, 3, 4];
+  final result = firstWhere(list, (value) => value == 4, orElse: () => -1);
+  print(result);
+}
+
+T firstWhere<T>(
+  List<T> items,
+  bool Function(T) f, {
+  required T Function() orElse,
+}) {
+  for (var item in items) {
+    if (f(item)) {
+      return item;
+    }
+  }
+  
+  return orElse();
+}
+

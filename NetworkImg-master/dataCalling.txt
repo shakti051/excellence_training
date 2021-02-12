@@ -1,0 +1,71 @@
+//https://gist.github.com/branflake2267/667ecfab4e056a2734c88b004f11cc1d
+import 'package:datapassing/datacalling.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  final nameController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Home  Page")),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Text("Enter your Name", style: TextStyle(fontSize: 25)),
+              TextField(controller: nameController),
+              SizedBox(
+                height: 20,
+              ),
+              RaisedButton(
+                onPressed: () {
+                  var name_entered = nameController.text;
+                  print("Name entered: " + name_entered);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ScreenWelcome(guestName: name_entered)));
+                },
+                child: Text("Go", style: TextStyle(fontSize: 25)),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ScreenWelcome extends StatelessWidget {
+  final guestName;
+  ScreenWelcome({this.guestName});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Welcome Screen")),
+      body: Center(
+          child: Text("Welcome " + guestName, style: TextStyle(fontSize: 25))),
+    );
+  }
+}

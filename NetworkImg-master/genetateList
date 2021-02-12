@@ -1,0 +1,15 @@
+Container(
+      height: 200.0,
+      color: Colors.white,
+      width: MediaQuery.of(context).size.width - 200,
+      padding: EdgeInsets.only(left: 16),
+      child: ListView.builder(
+        physics: ClampingScrollPhysics(),
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        itemCount: 103,
+        itemBuilder: (BuildContext context, int index) {
+          return YourClass(); // your class name or return sth
+        },
+      ),
+    );
