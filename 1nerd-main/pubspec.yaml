@@ -1,0 +1,42 @@
+name: feedback
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dotted_border: 1.0.6
+  flutter_custom_dialog: ^1.0.20
+  cupertino_icons: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+  #   - images/a_dot_ham.jpeg
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Bold.ttf
+        - asset: assets/fonts/Lato-Regular.ttf
+          weight: 700
+    - family: Open
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+    - family: Passion
+      fonts:
+        - asset: assets/fonts/PassionOne-Bold.ttf    
+  
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
