@@ -1,0 +1,94 @@
+name: flutter_excellence_hr
+description: Excellence HR Management.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+      sdk: flutter
+  http: ^0.12.2
+  #mockito: ^4.1.3
+  auto_size_text_field: ^0.1.6
+  flutter_socket_io: ^0.6.0
+  shared_preferences: ^0.5.10
+  hexcolor: ^1.0.4
+  bloc: ^6.0.0
+  flutter_bloc: ^6.0.0
+  equatable: ^1.2.0
+  meta: ^1.1.8
+  uuid: ^2.1.0
+  intl: ^0.16.1
+  google_sign_in: ^4.5.4
+  #universal_io: 1.0.1
+  cupertino_icons: ^0.1.3
+  string_validator: ^0.1.4
+  dotted_border: 1.0.6
+  rounded_loading_button: ^1.0.0
+  flutter_staggered_animations: "^0.1.2"
+  percent_indicator: ^2.1.6
+  sticky_headers: "^0.1.7"
+  datetime_picker_formfield: ^1.0.0
+  url_launcher: ^5.7.2
+  image_picker: 0.6.7+7
+  js: ^0.6.2
+  mime_type: ^0.3.2
+  get_it: ^3.0.3
+  provider: ^4.3.2+2
+  flutter_session: ^0.1.1
+  
+dev_dependencies:
+  flutter_driver:
+    sdk: flutter
+  test: any
+  
+
+flutter:
+  assets:
+    - assets/config/
+    - assets/images/
+    - assets/test/
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: fonts/OpenSansCondensed-Light.ttf
+      
+    - family: SourceSans
+      fonts:
+        - asset: fonts/SourceSansPro-Regular.ttf
+   
+        
+  uses-material-design: true
+  
+    
+  #   - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
