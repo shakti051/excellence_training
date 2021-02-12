@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1087363514323",
+    "firebase_url": "https://eklavyam-ad265.firebaseio.com",
+    "project_id": "eklavyam-ad265",
+    "storage_bucket": "eklavyam-ad265.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087363514323:android:45d447a1b9dc49c5157926",
+        "android_client_info": {
+          "package_name": "com.Bytesbrick.eklavayam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087363514323-d1v7cq505uesgoqq0croeh1rpl9sa8qf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Bytesbrick.eklavayam",
+            "certificate_hash": "ee4c459a9f0f78308ff4eaa32ee3e6ee214945fa"
+          }
+        },
+        {
+          "client_id": "1087363514323-i7rukcb2e42v2flnhq46mo15ts5hl76s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_VjWONZ2GyjdagynzeQNI58URW3t4uC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087363514323-i7rukcb2e42v2flnhq46mo15ts5hl76s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1087363514323-91sa6ahjda8b2j74ogmqae5407jouno0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Bytesbrick.eklavayam"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
