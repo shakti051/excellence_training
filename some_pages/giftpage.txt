@@ -1,0 +1,336 @@
+import 'package:flutter/material.dart';
+import 'package:gift_card/utility/colorResources.dart';
+import 'package:carousel_slider/carousel_controller.dart';
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+
+final List<String> imgList = [
+  'assets/images/birthday.png',
+  'assets/images/Happy-Chinese.png',
+  'assets/images/Happy-Holi.png',
+];
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Gift Card',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: GiftScreen());
+  }
+}
+
+class GiftScreen extends StatefulWidget {
+  @override
+  _GiftScreenState createState() => _GiftScreenState();
+}
+
+class _GiftScreenState extends State<GiftScreen> {
+  final CarouselController _controller = CarouselController();
+
+  bool liked = false;
+  String _yourName = "";
+
+  int _amount;
+  String gift = """just right gift for your family ,friends and staff""";
+  int _counter = 1;
+  final _message = TextEditingController();
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      if (_counter > 1) _counter--;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/back.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 30),
+                slider(context),
+                SizedBox(height: 10),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(width: 1.0, color: Colors.white),
+                      borderRadius: BorderRadius.all(Radius.circular(
+                              10.0) //                 <--- border radius here
+                          )),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                          margin: EdgeInsets.fromLTRB(16, 16, 16, 8),
+                          child: Text("GIFT VOUCHER",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.pink))),
+                      Container(
+                          margin: EdgeInsets.fromLTRB(16, 0, 16, 4),
+                          child: Theme(
+                            data: new ThemeData(
+                              primaryColor: Color(0xffff5699),
+                              // primaryColorDark: Colors.pink,
+                            ),
+                            child: TextFormField(
+                                controller: _message,
+                                maxLength: 30,
+                                decoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          color: Color(0xffff5699), width: 1.0),
+                                    ),
+                                    labelText: 'Name or Message')),
+                          )),
+                      Row(
+                        children: [
+                          SizedBox(width: 16),
+                          Container(
+                              margin: EdgeInsets.only(right: 8),
+                              child: Icon(Icons.grade,
+                                  color: Colors.yellowAccent)),
+                          Container(
+                              margin: EdgeInsets.only(right: 8),
+                              child: Icon(Icons.grade,
+                                  color: Colors.yellowAccent)),
+                          Container(
+                              margin: EdgeInsets.only(right: 8),
+                              child: Icon(Icons.grade,
+                                  color: Colors.yellowAccent)),
+                          Container(
+                              margin: EdgeInsets.only(right: 8),
+                              child: Icon(Icons.grade,
+                                  color: Colors.yellowAccent)),
+                          Container(
+                              margin: EdgeInsets.only(right: 8),
+                              child: Icon(Icons.grade,
+                                  color: Colors.yellowAccent)),
+                          Container(
+                              margin: EdgeInsets.only(right: 8),
+                              child: Text("5.0")),
+                        ],
+                      ),
+                      Container(
+                          margin: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                          child:
+                              Text("Amount", style: TextStyle(fontSize: 15))),
+                      Container(
+                          margin: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                          child: Text("\$ 5000",
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.pink))),
+                      const Divider(
+                          color: Colors.pink,
+                          height: 20,
+                          thickness: 1,
+                          indent: 16,
+                          endIndent: 16),
+                      qty(),
+                      buyNow(),
+                      SizedBox(height: 20),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 15),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget slider(context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Stack(
+          children: [
+            Card(
+              elevation: 7,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * .9,
+                height: MediaQuery.of(context).size.height * .65,
+                child: CarouselSlider(
+                  carouselController: _controller,
+                  options: CarouselOptions(
+                    height: MediaQuery.of(context).size.height * .65,
+                    viewportFraction: 1.0,
+                    enlargeCenterPage: false,
+                    // autoPlay: false,
+                  ),
+                  items: imgList
+                      .map((item) => Container(
+                            child: Center(
+                                child: Image.network(
+                              item,
+                              fit: BoxFit.cover,
+                              height: double.infinity,
+                              width: double.infinity,
+                            )),
+                          ))
+                      .toList(),
+                ),
+              ),
+            ),
+            Positioned(
+                bottom: 20,
+                right: 15,
+                child: InkWell(
+                  onTap: () {
+                    _controller.nextPage();
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: Color(0xffff5699),
+                    radius: 15,
+                    child: Icon(
+                      Icons.keyboard_arrow_right_rounded,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                  ),
+                )),
+            Positioned(
+                bottom: 20,
+                left: 15,
+                child: InkWell(
+                  onTap: () {
+                    _controller.previousPage();
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: Color(0xffff5699),
+                    radius: 15,
+                    child: Icon(
+                      Icons.keyboard_arrow_left_rounded,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                  ),
+                )),
+            Positioned(
+                bottom: 30,
+                left: 50,
+                child: Container(
+                    child: Text(
+                  _yourName,
+                  style: TextStyle(color: Colors.pink, fontSize: 12),
+                ))),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget qty() {
+    return Row(
+      children: [
+        Container(
+            margin: EdgeInsets.fromLTRB(16, 8, 16, 8), child: Text("QUANTITY")),
+        InkWell(
+          onTap: () {
+            _decrementCounter();
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.white,
+              ),
+              color: Colors.black54,
+            ),
+            margin: EdgeInsets.only(left: 16),
+            child: Icon(
+              Icons.remove,
+              color: Colors.white,
+              size: 24,
+            ),
+          ),
+        ),
+        Container(
+          width: 40,
+          height: 36,
+          padding: EdgeInsets.only(top: 8),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.white,
+            ),
+            color: Colors.white,
+          ),
+          child: Text(
+            '$_counter',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+            _incrementCounter();
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.white,
+              ),
+              color: Colors.black54,
+            ),
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
+              size: 24,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget buyNow() {
+    return Container(
+      width: double.infinity,
+      height: 40,
+      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      child: RaisedButton(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0),
+            side: BorderSide(color: Color(0xffff5699))),
+        color: Color(0xffff5699),
+        child: Text(
+          "Buy Now",
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+        onPressed: () {
+          setState(() {
+            _yourName = _message.text;
+            _amount = 5000 * int.parse("$_counter");
+            print("Amount to be paid $_amount");
+          });
+        },
+      ),
+    );
+  }
+}
