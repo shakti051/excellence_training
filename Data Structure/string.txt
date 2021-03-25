@@ -1,0 +1,795 @@
+String in C is the array of character ending with null char i.e \0.
+String in java are object that contains methods like toUppercase, equals etc.
+	in C;
+	char[] x = "ABC TECH"
+	printf("%c",x[6]);
+in Java 
+Strint x = "ABC TECH"
+System.out.println(x.charAt(6))	;
+
+Prove Strings are immutable in Java.Immutable :- Means which cann't be altered.
+1. count frequency of every charecter in a string.
+	
+    public static void main(String[] args) {
+        String str = "abccbbsc";
+        for(int i=0; i < str.length(); i++)
+        {  int count = 0;
+            for (int j=0;j<str.length();j++){
+                if (j<i &&(str.charAt(i)==str.charAt(j)))
+                    break;
+            if (str.charAt(i)==str.charAt(j))
+                count++;
+            }
+            if (count>0)
+            System.out.println("the char occured: "+str.charAt(i)+ " " + +count);
+        }
+    }
+
+2. Reverse any string
+    public static void main(String[] args) {
+        String str = "GeeksForGeeks";
+        // convert String to character array
+        // by using toCharArray
+
+        for (int i= str.length()-1;i>0;i--)
+            System.out.print(str.charAt(i));
+    }
+
+2. Reverse any string using string buffer
+
+public static void main(String[] args) {
+        String str = "aabbbsssss";
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(str);
+        stringBuffer = stringBuffer.reverse();
+        System.out.println(stringBuffer);
+    }
+
+3.Sort an array of strings according to string lengths
+public static void main(String[] args) {
+        String []arr = {"GeeksforGeeeks", "I", "from", "am"};
+        for (int i=0;i<arr.length;i++){
+                for (int j=i+1;j<arr.length;j++){
+                    if (arr[i].length()>arr[j].length()){
+                        String temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j]=temp;
+                    }
+                }
+        }
+        for (int i =0;i<arr.length;i++)
+            System.out.print(arr[i]+" ");
+    }
+
+4. Sort string of characters
+public static void main(String[] args) {
+        String str = "geeksforgeeks";
+        char[] arr = str.toCharArray();
+        Arrays.sort(arr);
+        System.out.println(arr);
+    }
+
+5. Sort String array in Accending order(Dictionary).
+
+	public static void main(String[] args) {
+        String[] str = {"deepak","amit","rahul","amc"};
+        for(int i = 0;i< str.length;i++){
+            for (int j=i+1;j<str.length;j++){
+                   if(str[i].compareTo(str[j])>0){
+                   String temp = str[i];
+                   str[i] = str[j];
+                   str[j] = temp;
+                }
+            }
+        }
+        for (int i= 0;i<str.length;i++)
+            System.out.println(str[i]);
+    }	
+
+6. Arrange alphabate of any String in Accending order.
+
+	public static void main(String[] args) {
+        String str = "Deepak";
+        /**Arrange String in lower or capital form bcoz ASCII code is different.***/
+        String myStr = str.toLowerCase();
+
+        char[] mychar = myStr.toCharArray();
+        for(int i = 0;i< mychar.length;i++){
+            for (int j=i+1;j<mychar.length;j++){
+                   if(mychar[i]>mychar[j]){
+                   char temp = mychar[i];
+                   mychar[i] = mychar[j];
+                   mychar[j] = temp;
+                }
+            }
+        }
+        for (int i= 0;i<str.length();i++)
+            System.out.print(mychar[i]);
+    }
+
+7. Sort the given string using character search
+
+	public static void main(String[] args) {
+        String str = "geeksforgeeks";
+        String strSort = "";
+        for (int i = 'a';i<='z';i++)
+            for (int j = 0;j<str.length();j++)
+                if (str.charAt(j)==i)
+                    strSort +=str.charAt(j);
+
+        System.out.print(strSort+" ");
+    }
+
+8. Print sum of the integer between any string.
+
+	public static void main(String[] args) {
+        String str = "ACCBA11D2EW30";
+        int sum = 0;
+        for (int i = 0;i<str.length();i++){
+            if(Character.isDigit(str.charAt(i)))
+                sum = sum + Integer.parseInt(String.valueOf(str.charAt(i)));
+        }
+        System.out.println("Th e sum is "+sum);
+     }
+
+9. Remove spaces from any string:-
+
+	public static void main(String[] args) {
+        String str = "g eeks for ge eeks ";
+        str = str.replaceAll("\\s","");
+        System.out.println(str);
+    }
+
+10. Move spaces to front of string in single traversal
+Input  : str = "geeks for geeks"
+Output : ste = "  geeksforgeeks"
+
+	public static void main(String[] args) {
+        String str = "Hey there, it's GeeksforGeeks";
+        char[] strChar = str.toCharArray();
+        int i = strChar.length-1;
+        for (int j = i; j >= 0; j--)
+            if (strChar[j] != ' ')
+            {
+                char c = strChar[i];
+                strChar[i] = strChar[j];
+                strChar[j] = c;
+                i--;
+            }
+        System.out.println(strChar);
+    }
+
+11. Put spaces between words starting with capital letters
+Input : BruceWayneIsBatman
+Output : bruce wayne is batman
+
+	public static void main(String[] args) {
+        String str ="BruceWayneIsBatman";
+        char[] strChar = str.toCharArray();
+        for (int i=0;i<strChar.length;i++){
+            if (strChar[i]>='A'&& strChar[i]<='Z'){
+                strChar[i] = (char)(strChar[i]+32);/**Convert it to lowercase**/
+                if (i!=0)
+                    System.out.print(" ");/**Adding space before it**/
+                System.out.print(strChar[i]);
+            }else System.out.print(strChar[i]);
+        }
+    }
+
+12. Count distinct no of element in the array:-
+
+	public static void main(String[] args) {
+        int arr[] = { 12, 10, 9, 45, 2, 10, 10, 45 };
+        int count= 0;
+        int i,j;
+        for (i=0;i<arr.length;i++){
+                for ( j=0;j<i;j++){
+                    if (arr[i]==arr[j])
+                        break;
+                }
+                if (i==j)
+                    count++;
+        }
+        System.out.println("Total distinct element are "+count);
+    }
+
+13. Print distinct no of element of array.
+
+	public static void main(String[] args) {
+        int arr[] = { 12, 10, 9, 45, 2, 10, 10, 45 };
+        int count= 0;
+        int i,j;
+        for (i=0;i<arr.length;i++){
+                for ( j=0;j<i;j++){
+                    if (arr[i]==arr[j])
+                        break;
+                }
+                if (i==j)
+        System.out.print(arr[i]+" ");
+        }
+    }
+
+14. 
+	Check two Strings are anagram or not:-
+	
+	public static void main(String[] args) {
+        String str1 = "He is aRadhya";
+        String str2 = "is he HRADAYA";
+        str1 = str1.replace(" ","");
+        str2 = str2.replace(" ","");
+        char[] strA = str1.toLowerCase().toCharArray();
+        char[] strB = str2.toLowerCase().toCharArray();
+        Arrays.sort(strA);
+        Arrays.sort(strB);
+        Boolean result = Arrays.equals(strA,strB);
+        if (result )
+            System.out.println("Anagram");
+        else System.out.println("Not Anagram");
+    }
+
+15. Check weather a given string is panagram or not
+
+public static void main(String[] args) {
+        String str = "The quick brown fox jumps over the lazy dog";
+        str = str.toUpperCase();
+        str = str.replace(" ","");
+        boolean[] alphaList = new boolean[26];
+        
+        int flag = 1;
+        for (int i = 0; i < str.length(); i++) {
+             int index = str.charAt(i) - 65;
+            alphaList[index] = true;
+        }
+        for (int i = 0; i <= 25; i++) {
+            if (!alphaList[i]){
+                flag = 0;break;
+            }
+        }
+
+        System.out.print("String: " + str);
+        if (flag == 1)
+            System.out.print("\nThe above string is a pangram.");
+        else
+            System.out.print("\nThe above string is not a pangram.");
+      }
+
+16. Find length of the String:-
+
+	public static void main(String[] args) {
+        String str = "ABC TECH";
+        str = str.concat("\0");
+        char[] strLen = str.toCharArray();
+        int count = 0;
+        for (int i = 0; strLen[i]!= '\0'; i++)
+                count++;
+        System.out.println(count);
+    }
+
+17. Copy one String to Another:-
+	public static void main(String[] args) {
+        String str = "ABC TECH";
+        char[] strChar = str.toCharArray();
+        char[] strCpoy= new char[strChar.length];
+
+        for (int i=0;i<strChar.length;i++)
+            strCpoy[i]=strChar[i];
+        System.out.println(strCpoy);
+    }
+
+18.Check weather a string is pallindrome or not:-
+
+	public static void main(String[] args) {
+        String str , rev = "";
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string:");
+        str = sc.nextLine();
+        str = str.toUpperCase();
+        str = str.replace(" ","");
+        
+        int length = str.length();
+        for ( int i = length - 1; i >= 0; i-- )
+            rev = rev + str.charAt(i);
+        if (str.equals(rev))
+            System.out.println(str+" is a palindrome");
+        else
+            System.out.println(str+" is not a palindrome");
+    }
+
+19. convert lowercase to upper
+
+	public static void main(String[] args) {
+        // lower - 32 = upper
+        String str = "aradhya";
+        char[] toUpper = str.toCharArray();
+        for (int i=0;i<toUpper.length;i++)
+                toUpper[i] = (char)(toUpper[i]-32);
+        System.out.println(toUpper);
+	}
+
+20. convert first letter of string to uppercase
+
+	public static void main(String[] args) {
+        // lower - 32 = upper
+        String str = "aradhya sharma";
+        char[] toUpper = str.toCharArray();
+        toUpper[0] = (char)(toUpper[0]-32);
+        for (int i=1;i<toUpper.length;i++)
+                if (toUpper[i]==' ')
+            toUpper[i+1] = (char)(toUpper[i+1]-32);
+        System.out.println(toUpper);
+    }
+
+21. Convert string lowercase to upper if it has blank space:-
+
+	public static void main(String[] args) {
+        // lower - 32 = upper
+        String str = "aradhya sharma";
+        char[] toUpper = str.toCharArray();
+        for (int i=0;i<toUpper.length;i++)
+                if (toUpper[i]!=' ')
+            toUpper[i] = (char)(toUpper[i]-32);
+        System.out.println(toUpper);
+    }
+
+22. Count vowel,consonent n special charecter in any string 
+
+	public static void main(String[] args) {
+        String str = "ARADHYA's ACHEDEMY";
+        char[] strChar = str.toCharArray();
+        int vowel = 0;
+        int consonent = 0;
+        int special = 0;
+        for (int i=0;i<strChar.length;i++){
+            if (strChar[i]>='A' && strChar[i]<='Z')
+                if(strChar[i]=='A'||strChar[i]=='E'||strChar[i]=='I'||strChar[i]=='O'
+                     ||strChar[i]=='U')
+                    vowel++;
+                else consonent++;
+                else special++;
+        }
+        System.out.println("Vowel "+vowel);
+        System.out.println("Consonent "+consonent);
+        System.out.println("Special "+special);
+    }
+
+23. Verify weather a string contains only integers:-
+
+	public static void main(String[] args) {
+        String str = "1234";
+        boolean found = true;
+        for (int i=0;i<str.length();i++)
+            if (str.charAt(i)>='0' && str.charAt(i)<='9')
+            { }else {System.out.println("Not Numberic string");found=false;break;}
+
+        if (found)
+            System.out.println("Numeric String");
+    }
+
+24.MAP is a data structure which holds the data as<key,value> pair. keys are unique n values need not to be unique.
+	Types of Map: - 1. HashMap:- Stores data in Random Order.
+ 			2.LinkedHashMap:- Stores data in same sequence as the input.
+ 			3.TreeMap:- Stores data in sorted order.
+25. Find frequency of each character in a String using HashMap
+
+	public static void main(String[] args) {
+        String str = "ARADHAYA";
+        char[] strChar = str.toCharArray();
+        HashMap<Character,Integer> map = new HashMap<>();
+        for (int i=0;i<strChar.length;i++){
+            if (!map.containsKey(strChar[i]))
+                map.put(strChar[i],1);
+            else {
+                int oldValue = map.get(strChar[i]);
+                int newValue = oldValue+1;
+                map.put(strChar[i],newValue);
+            }
+        }
+        Set<HashMap.Entry<Character,Integer>> heap = map.entrySet();
+        for (HashMap.Entry<Character,Integer> data:heap){
+            System.out.print(data.getKey()+" ");
+            System.out.println(data.getValue());
+        }
+    }
+
+26. Check weather a string contains all unique character or not
+
+	public static void main(String[] args) {
+        String str = "SPIDERMAN";
+        char[] strChar = str.toCharArray();
+        Map<Character,Integer> map = new HashMap<>();
+        for (int i=0;i<strChar.length;i++){
+            if (!map.containsKey(strChar[i]))
+                map.put(strChar[i],1);
+            else {
+                int oldValue = map.get(strChar[i]);
+                int newValue = oldValue+1;
+                map.put(strChar[i],newValue);
+            }
+        }
+        Set<Map.Entry<Character,Integer>> heap = map.entrySet();
+        for (Map.Entry<Character,Integer> data:heap){
+            if (data.getValue()>1)
+            {System.out.println("String doesn't have unique character");System.exit(0);}
+        }
+        
+        System.out.println("String having only unique character");
+    }
+
+27. Print all non repeating character in a string 
+
+	public static void main(String[] args) {
+        String str = "SILLYSPIDER";
+        char[] strChar = str.toCharArray();
+
+        Map<Character,Integer> map = new LinkedHashMap<>();
+        for (int i=0;i<strChar.length;i++){
+            if (!map.containsKey(strChar[i]))
+                map.put(strChar[i],1);
+            else {
+                int oldValue = map.get(strChar[i]);
+                int newValue = oldValue+1;
+                map.put(strChar[i],newValue);
+            }
+        }
+        Set<Map.Entry<Character,Integer>> heap = map.entrySet();
+        for (Map.Entry<Character,Integer> data:heap){
+                    if (data.getValue()==1)
+                    System.out.print(data.getKey()+" ");
+        }
+    }
+
+28. Print first non repeating character of a string
+
+	public static void main(String[] args) {
+        String str = "SILLYSPIDER";
+        char[] strChar = str.toCharArray();
+
+        Map<Character,Integer> map = new LinkedHashMap<>();
+        for (int i=0;i<strChar.length;i++){
+            if (!map.containsKey(strChar[i]))
+                map.put(strChar[i],1);
+            else {
+                int oldValue = map.get(strChar[i]);
+                int newValue = oldValue+1;
+                map.put(strChar[i],newValue);
+            }
+        }
+
+        Set<Map.Entry<Character,Integer>> heap = map.entrySet();
+        for (Map.Entry<Character,Integer> data:heap){
+                    if (data.getValue()==1)
+                    {System.out.print(data.getKey()+" ");System.exit(0);}
+        }
+    }
+
+29. Find max occuring character in a string 
+
+	public static void main(String[] args) {
+        String str = "SILLYSPIDERLYYY";
+        char[] strChar = str.toCharArray();
+        char maxKey = ' ';
+        int maxVal = 0;
+
+        Map<Character,Integer> map = new LinkedHashMap<>();
+        for (int i=0;i<strChar.length;i++){
+            if (!map.containsKey(strChar[i]))
+                map.put(strChar[i],1);
+            else {
+                int oldValue = map.get(strChar[i]);
+                int newValue = oldValue+1;
+                map.put(strChar[i],newValue);
+            }
+        }
+
+        Set<Map.Entry<Character,Integer>> heap = map.entrySet();
+        for (Map.Entry<Character,Integer> data:heap){
+                    if (data.getValue()>maxVal)
+                    {maxVal = data.getValue();
+                     maxKey = data.getKey();
+                    }
+        }
+        System.out.println(maxKey+" "+maxVal);
+    }
+
+30. Remove all the duplicate from String:-
+
+	public static void main(String[] args) {
+        String str = "SILLYSPIDERLYYY";
+        char[] strChar = str.toCharArray();
+        Map<Character,Integer> map = new LinkedHashMap<>();
+        for (int i=0;i<strChar.length;i++){
+            if (!map.containsKey(strChar[i]))
+                map.put(strChar[i],1);
+            else {
+                int oldValue = map.get(strChar[i]);
+                int newValue = oldValue+1;
+                map.put(strChar[i],newValue);
+            }
+        }
+
+        Set<Map.Entry<Character,Integer>> heap = map.entrySet();
+        for (Map.Entry<Character,Integer> data:heap){
+            System.out.print(data.getKey()+"");
+        }
+    }
+
+31. Replace all the white spaces from the string:-
+
+	public static void main(String[] args) {
+        String str = "g eeks for ge      eeks ";
+        str = str.replaceAll("\\s","");
+        System.out.println(str);
+    }
+
+32. Prove Strings are immutable in java:-
+		/** Means cann't be changed.not open for change.
+		 Strings created using String class are immutable n Strings created using StringBuffer or StringBuilder 			are mutable **/	
+	public static void main(String[] args) {
+        String x = "ABC";
+        String y = "TECH";
+         x.concat(y);
+        System.out.println(x);
+    } // The output is ABC
+
+	OR U CAN WRITE
+
+	public static void main(String[] args) {
+        String x = new String("ABC");
+        String y = new String("TECH");
+         x.concat(y);
+        System.out.println(x);
+    }
+
+
+33. Make String mutable with the help of StringBuilder or StringBuffer
+
+	public static void main(String[] args) {
+        StringBuilder x = new StringBuilder("ABC");
+        StringBuilder y = new StringBuilder("TECH");
+         x.append(y);
+        System.out.println(x);
+    }//The output is ABCTECH
+
+
+34. Swapping two numbers without using third number:-
+
+	public static void main(String[] args) {
+        int a = 10;
+        int b = 6;
+        a = a+b;//10+6 = 16
+        b = a-b;//16-6 = 10
+        a = a-b;//16 - 10 =
+        System.out.println(a+" "+b);
+    }
+
+35. swap two numbers using XOR operation:-
+
+	public static void main(String[] args) {
+        int a = 10;
+        int b = 6;
+        a = a^b;//10+6 = 16
+        b = a^b;//16-6 = 10
+        a = a^b;//16 - 10 =
+        System.out.println(a+" "+b);
+    }
+
+36. swapping two numbers in single statement:-
+
+	public static void main(String[] args) {
+        int a = 10;
+        int b = 6;
+      //  a = a + b - (b=a);
+	a = a ^ b ^ (b=a);
+        System.out.println(a+" "+b);
+    }
+
+37. swaping 4 numbers or n numbers using following logic:-
+
+	public static void main(String[] args) {
+        int a = 10;
+        int b = 6;
+        int c = 4;
+        int d = 2;
+
+      //  a = a + b - (b=a);
+        a = a ^ b ^ (b=a);
+        b = b ^c ^(c=b);
+        c=  c^d^(d=c);
+        System.out.println(a+" "+b+" "+c+" "+d);
+    }
+
+38. swap nibbles in a byte:-
+
+	public static void main(String[] args) {
+        int num = 43;
+        int newNum;
+        newNum = (num & 0x0F)<<4 | (num & 0xF0)>>4;
+        System.out.println(newNum);
+    }
+
+39.  Swap even and odd bits in a byte
+
+	public static void main(String[] args) {
+        int num = 43;
+        int newNum;
+        newNum = (num & 0x55)<<1 | (num & 0xAA)>>1;
+        System.out.println(newNum);
+    }
+
+
+String Swapping:- In String swapping we don't swap Strings we swap refrences.
+40. Swap two strings
+	public static void main(String[] args) {
+        String x = "ABC";
+        String y = "TECH";
+        String temp = " ";
+        temp =x;
+        x= y;
+        y=temp;
+        System.out.println(x+" "+y);
+    }
+
+41. swap two strings without using third string:-
+
+	public static void main(String[] args) {
+        String a = "ABC";
+        String b = "TECH";
+        System.out.println("Before swap: " + a + " " + b);
+        a = a + b;
+        b = a.substring(0, a.length() - b.length());
+        a = a.substring(b.length());
+        System.out.println("After : " + a + " " + b);
+    }
+
+
+40. Count number of words in a string :-
+
+	public static void main(String[] args) {
+        String str = "we are proud indians";
+        String strCount[] = str.split(" ");
+        System.out.println(strCount.length);
+    }
+
+41.Program to verify weather a string is rotatioanl string of another or not
+
+	public static void main(String[] args) {
+        String originalString = "ARADHYA";
+        String keyString = "RADHYAA";
+        String newString = originalString.concat(originalString);
+        if (newString.contains(keyString))
+            System.out.println("Rotational String");
+        else System.out.println("Not Rotational String");
+    }
+
+42. Delete all occurance of any specific charecter:-
+
+	public static void main(String[] args) {
+        String str = "SILLYSPIPERS";
+        char[] strChar = str.toCharArray();
+        char delChar = 'S';
+        for (int i=0;i<strChar.length;i++)
+            if (strChar[i]!=delChar)
+                System.out.print(strChar[i]);
+    }
+
+43. Remove a character from a string to make it a palindrome:-
+
+    public static void main(String[] args) {
+        String str = "abcbar";
+        int idx = possiblePalinRemovingOneChar(str);
+        if (idx==-1)
+            System.out.println("Not Possible");
+        else if (idx==-2)
+            System.out.println("Possible without removing any character");
+        else
+            System.out.println(" (Possible by removing index) "+ idx);
+    }
+
+    static boolean isPallindrome(String str,int low,int high){
+
+            while (low<high){
+                if (str.charAt(low)!=str.charAt(high))
+                    return false;
+                low++;high--;
+            }
+            return true;
+    }
+
+    static int possiblePalinRemovingOneChar(String str){
+        int low = 0,high = str.length()-1;
+        while (low<high){
+            if (str.charAt(low)==str.charAt(high)){
+                low++;high--;
+            }else { /**If removal of str[low] makes a string pallindrome**/
+                    if (isPallindrome(str,low+1,high))
+                    {System.out.print("The char is "+str.charAt(low)+" which should be removed");return low;}
+                /**If removal of str[high] makes a string pallindrome**/
+                 if (isPallindrome(str,low,high-1))
+                 {System.out.print("The char is "+str.charAt(high)+" which should be removed");return high;}
+                 return -1;
+            }
+        }
+        return -2;
+    }
+
+44. Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+public static void main(String[] args) {
+        String[] str= {"cat","catog","cattle"};
+        String result = findLongestPrefix(str);
+        System.out.println(result);
+    }
+
+    private static String findLongestPrefix(String[] str) {
+        if(str.length ==0)return "";
+        String prefix = str[0];
+        for(int i=1;i<str.length;i++){
+            String currentWord = str[i];
+            int j=0;
+            while(j< currentWord.length() && j< prefix.length() && currentWord.charAt(j)==prefix.charAt(j))
+            {j++;}
+            if (j==0)
+                return "";
+            prefix = currentWord.substring(0,j);
+
+        }
+        return prefix;
+    }
+
+/**You can also solve the above ques by the following method**/
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if(strs.length ==0)return "";
+        String prefix = strs[0];
+        for(int i=1;i<strs.length;i++){
+            while(strs[i].indexOf(prefix)!=0)
+                prefix = prefix.substring(0,prefix.length()-1);
+        }
+        return prefix;
+    }
+}
+
+45. Pallindrome programme with recursion:-
+
+public static void main(String[] args) {
+        String str = "xyyzzpzzyyx";
+        System.out.println(isPalindrome(str, 0, str.length() - 1));
+    }
+
+    private static boolean isPalindrome(String str, int low, int high) {
+        if (low >= high)
+            return true;
+            return (str.charAt(low) == str.charAt(high) && isPalindrome(str, low + 1, high - 1));
+    }
+
+46. Reverse words of String:- 
+
+public class Main {
+    public void reverseWordInMyString(String str)
+    {
+
+        String[] words = str.split(" ");
+        String reversedString = "";
+        for (int i = 0; i < words.length; i++)
+        {
+            String word = words[i];
+            String reverseWord = "";
+            for (int j = word.length()-1; j >= 0; j--)
+            {
+                reverseWord = reverseWord + word.charAt(j);
+            }
+            reversedString = reversedString + reverseWord + " ";
+        }
+        System.out.println(str);
+        System.out.println(reversedString);
+    }
+    public static void main(String[] args) {
+
+        Main obj = new Main();
+        obj.reverseWordInMyString("My Name is Rahul");
+    }
+}
+

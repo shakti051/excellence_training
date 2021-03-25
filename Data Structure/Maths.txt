@@ -1,0 +1,406 @@
+to somdutta@netcommlabs.com 
+It is often easier to make money , than try to save money.
+
+1. LCM of two numbers
+
+int main(){
+	int a,b,l;
+	printf("\n Enter two number ");
+	scanf("%d%d",&a,&b);
+	for(l=a>b?a:b;l<=a*b;l=l+(a>b?a:b))  /**or l=1;l<=a*b;l=l++**/
+		if(l%a==0 && l%b==0 )
+		break;
+	
+	printf("LCM is %d ",l);	
+	
+}
+		
+2. Find prime no between two numbers.
+
+#include <stdio.h>
+int main()
+{
+  int l,u,x,i;
+  printf("\n Enter two number. ");
+  scanf("%d%d",&l,&u);
+     for(x=l+1;x<=u-1;x++){
+			for(i=2;i<x;i++)
+			if(x%i==0)
+			break;
+			if(i==x)
+			printf("%d ,x);
+	 }
+  return 0;
+}
+
+3. Given a positive number n.Find all prime no less than n.
+
+#include <stdio.h>
+int main()
+{
+  int l,u,x,i;
+  printf("\n Enter the number. ");
+  scanf("%d",&u);
+     for(x=2;x<u;x++){
+			for(i=2;i<x;i++){
+			if(x%i==0)
+			break;
+			}
+			if(i==x)
+			printf("%d ",x);
+	 }
+  return 0;
+}
+
+
+3.Given two strings which represent non-negative integers, multiply the two numbers and return the product as a string as well. You should assume that the numbers may be sufficiently large such that the built-in integer type will not be able to store the input.
+
+	public static void main(String[] args) {
+        String str1 = "11";
+        String str2 = "13";
+        double multiply;
+        multiply = Double.parseDouble(str1)*Double.parseDouble(str2);
+        System.out.println(multiply);
+    }
+
+4. Convert decimal value to hexadecimal without using any inbuilt function.
+
+	public static void main(String[] args) {
+        int decimal = 289,rem;
+        String hex = "";
+        char hexchars[]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+        while (decimal>0){
+            rem = decimal%16;
+            hex = hexchars[rem]+hex;
+            decimal = decimal/16;
+        }
+        System.out.println(hex);
+    }
+
+5.program to print pascals triangel
+
+#include<stdio.h>
+int fact(int);
+int combi(int,int);
+void printPascal(int);
+
+int fact (int n){
+	int f=1;
+	int i;
+	for(i=n;i>=1;i--)
+		f=f*i;
+		
+	return f;
+}
+
+int combi(int n,int r){
+	return(fact(n)/fact(n-r)/fact(r));
+}
+
+void printPascal(int line){
+	int i,j,k,r;
+	for(i=1;i<=line;i++){
+			k=1;
+			r=0;
+		for(j=1;j<=line*2-1;j++){
+			if(j>=line+1-i && j<=line-1+i && k){
+				printf("%d",combi(i-1,r));k=0;r++;
+			}else{
+			 	printf(" ");k=1;
+			}
+		}
+		printf("\n");
+	}
+}
+
+int main(){
+	printPascal(6);
+}
+
+
+6. Reverse a number program:-
+
+#include <stdio.h>
+int main() {
+    int n, rev = 0, remainder;
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+    while (n != 0) {
+        remainder = n % 10;
+        rev = rev * 10 + remainder;
+        n /= 10;
+    }
+    printf("Reversed number = %d", rev);
+    return 0;
+}
+
+7. GCD of two numbers using for loop
+
+#include <stdio.h>
+int main()
+{
+    int n1, n2, i, gcd;
+
+    printf("Enter two integers: ");
+    scanf("%d %d", &n1, &n2);
+
+    for(i=1; i <= n1 && i <= n2; ++i)
+    {
+        // Checks if i is factor of both integers
+        if(n1%i==0 && n2%i==0)
+            gcd = i;
+    }
+
+    printf("G.C.D of %d and %d is %d", n1, n2, gcd);
+
+    return 0;
+}
+
+8. GCD of two numbers using recursion:-
+
+#include<stdio.h>
+int GCD(int,int);
+
+int main(){
+	
+	printf("GCD is %d",GCD(4,6));
+}
+
+int GCD(int a,int b){
+	if(a==b)
+	return a;
+	if(a%b==0)
+	return b;
+	if(b%a==0)
+	return a;
+	if(a>b)
+	return GCD(a%b,b);
+	else return GCD(b%a,a);
+}
+
+9. Find GCD of array :-
+
+#include<stdio.h>
+int GCD(int,int);
+int GCDArr(int arr[],int);
+
+int main(){
+	
+	int arr[100],size,num,i;
+	printf("Enter the size of array: ");
+	scanf("%d",&size);
+	
+	printf("\n Enter the elements in array:\n ");
+	for(i=0;i<size;i++){
+	printf("\n Enter the value %d : ",i+1);
+	scanf("%d",&arr[i]);
+	}
+
+	printf("\n Your arrays is: ");
+	for(i=0;i<size;i++)
+	printf("%d ",arr[i]);
+	
+	num = GCDArr(arr,size); /**num stores value of GCD Of Array**/
+		
+	printf("\n\n The GCD of array is %d",num);
+}
+
+int GCDArr(int arr[],int size){
+	int result = arr[0],i;
+	for(i=1;i<size;i++){
+		result = GCD(arr[i],result);
+		if(result == 1)
+		return 1;
+	}
+	return result;
+}
+
+int GCD(int a,int b){
+	if(a==b)
+	return a;
+	if(a%b==0)
+	return b;
+	if(b%a==0)
+	return a;
+	if(a>b)
+	return GCD(a%b,b);
+	else return GCD(b%a,a);
+}
+
+10. Convert integer into roman numerals.
+
+ public static void main(String[] args) {
+	    /**Create instance of solution class if you want to copy code from leatcode**/
+        int num= 49;
+        String str = intToRoman(num);
+        System.out.println(str);
+        
+        /*Solution solution = new Solution();
+        String str = solution.intToRoman(505);
+        System.out.println(str);*/
+    }
+
+    private static String intToRoman(int num) {
+        String[] thousands = {"", "M", "MM", "MMM"};
+        String[] hundreds =
+                {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+        String[] tens =
+                {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+        String[] units =
+                {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        return thousands[num / 1000] +
+                hundreds[(num % 1000) / 100] +
+                tens[(num % 100) / 10] +
+                units[num % 10];
+    }
+
+11. Print nth term of fibonaki series using bottomUp dynamic programming approach
+
+#include<stdio.h>
+int fib(int);
+
+int main(){
+	int n= 6;
+	printf("%d",fib(n));
+}
+
+int fib(n){
+	int i;
+ 	int a[100];
+	 a[0]=0,a[1]=1;
+	 for(i=2;i<=n;i++){
+	 	a[i]=a[i-1]+a[i-2];
+	 }	
+	 return a[n];
+}
+
+12.Find combination nCr ,OR Bianomial cofficient;
+
+   public static void main(String[] args) {
+         int[][] mem = new int[7][5];
+        System.out.println(binomialCoefficient(6,4,mem));
+        System.out.println(binomialCoefficient(6,4));
+        System.out.println(binomialCoefficientDP(6,4));
+    }
+            /**Recursive method **/
+    public static int binomialCoefficient(int n, int k){
+        if(n == k || k == 0){
+            return 1;
+        }
+        return binomialCoefficient(n-1,k-1)+ binomialCoefficient(n-1,k);
+    }
+        /***Top down approach dyanamic programming**/
+    public static int binomialCoefficient(int n, int k, int[][] mem){
+        if(k == 0 || n == k) return 1;
+        if(mem[n][k] != 0){
+            return mem[n][k];
+        }
+        int res =  binomialCoefficient(n-1,k-1,mem)+ binomialCoefficient(n-1,k,mem);
+        mem[n][k]=res;
+        return res;
+    }
+        /**Bottom_Up approach (Tabulation method)**/
+    public static int binomialCoefficientDP(int n, int k){
+        int[][] dp = new int[n+1][k+1];
+        for(int i=0;i<=n;i++){
+            dp[i][0]=1;
+            if(i<=k){
+                dp[i][i]=1;
+            }
+        }
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=k;j++){
+                dp[i][j] = dp[i-1][j-1]+dp[i-1][j];
+            }
+        }
+        return dp[n][k];
+    }
+
+13. Find the total no of ways to print sum(w) of with the given no of coins.
+
+public static void main(String[] args) {
+       int  coins[]={2,3,5,10};
+       int w = 15;
+       int val = sumCoinWeight(coins,coins.length,w);
+        System.out.println("The total possible ways: "+val);
+    }
+    public static int sumCoinWeight(int []coins,int n, int k){
+        int[][] dp = new int[n+1][k+1];
+        for(int i=0;i<=n;i++){
+            dp[i][0]=1;
+        }
+
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=k;j++){
+                if (coins[i-1]>j) 
+                    dp[i][j]=dp[i-1][j];
+                else dp[i][j]=dp[i-1][j]+dp[i][j-coins[i-1]];
+            }
+        }
+        return dp[n][k];
+    }
+
+14. The min no of coin used to make given weight:-
+
+	public static void main(String[] args) {
+        int  coins[]={1,5,6,9};
+        int w = 10;
+        int val = sumCoinWeight(coins,coins.length,w);
+        System.out.println("The min no of coin to make given weight : "+val);
+    }
+
+    public static int sumCoinWeight(int []coins,int n, int k){
+        int[][] dp = new int[n+1][k+1];
+        for(int i=0;i<=n;i++){
+            for (int j=0;j<=k;j++){
+                dp[i][0]=0;
+                dp[0][j]=j;
+            }
+        }
+        
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=k;j++){
+                if (coins[i-1]>j)
+                    dp[i][j]=dp[i-1][j];
+                else dp[i][j]= Math.min(dp[i-1][j],1+dp[i][j-coins[i-1]]) ;
+            }
+        }
+        return dp[n][k];
+    }
+
+15. Program to check wether It is possible to make given sum with the given set of coin 
+
+public static void main(String[] args) {
+        int  coins[]={1,3,9,2};
+        int w = 5;
+        boolean val = sumCoinWeight(coins,coins.length,w);
+        System.out.println("The possibility is : "+val);
+    }
+    public static boolean sumCoinWeight(int []coins,int n, int k){
+        boolean[][] dp = new boolean[n+1][k+1];
+
+       /** if subset is empty, we can't sum up to target**/
+       for (int j=1;j<=k;j++)
+           dp[0][j]=false;
+
+       /** if target is zero we can use empty set**/
+       for (int i=0;i<=n;i++)
+           dp[i][0]=true;
+
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=k;j++){
+                    dp[i][j]=dp[i-1][j];
+                    if (!dp[i][j] && coins[i-1]<=j)
+                 dp[i][j]= dp[i-1][j-coins[i-1]] ;
+            }
+        }
+        return dp[n][k];
+    }
+
+16. program to print number 1 to 100 but doesn't use loop from 1 to 100
+
+	public static void main(String[] args) {
+        for (int i=1,j=51;i<=50;i++,j++)
+            System.out.println(i+" "+j);
+    }
+  

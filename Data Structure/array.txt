@@ -1,0 +1,2594 @@
+Pattern Asked in ConQsys Exam:-
+
+#include<stdio.h>
+int main(){
+	int i,j;
+	for(i=1;i<=7;i++){
+		for(j=1;j<=4;j++){
+			if(i==1 && j>2)
+			printf("*");
+			else printf("");
+			
+			if((i==2||i==3)&& j>1)
+			printf("*");
+			else printf("");
+			
+			if((i==4||i==5 )&& j>2)
+			printf("*");
+			else printf("");
+			
+			if(i==6||i==7)
+			printf("*");
+		}
+		printf("\n");
+	}
+}
+
+1. LCM of two numbers
+	int main(){
+	int a,b,l;
+	printf("\n Enter two number ");
+	scanf("%d%d",&a,&b);
+	for(l=a>b?a:b;l<=a*b;l=l+(a>b?a:b))  /**or l=1;l<=a*b;l=l++**/
+		if(l%a==0 && l%b==0 )
+		break;
+	
+	printf("LCM is %d ",l);	
+	
+}
+		
+2. Find prime no between two numbers.
+#include <stdio.h>
+int main()
+{
+  int l,u,x,i;
+  printf("\n Enter two number. ");
+  scanf("%d%d",&l,&u);
+     for(x=l+1;x<=u-1;x++){
+			for(i=2;i<x;i++)
+			if(x%i==0)
+			break;
+			if(i==x)
+			printf("%d ,x);
+	 }
+  return 0;
+}
+
+
+SUM OF POSITIVE AND NEGATIVE ELEMENTS OF ARRAY - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int arr[50],num,i,sum=0,sum_neg=0;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter value %d: ",i+1);
+scanf("%d",&arr[i]);
+if(arr[i]>=0)
+sum=sum+arr[i];
+else
+sum_neg = sum_neg + arr[i];
+}
+
+printf("\n The positive array is: ");
+for(i=0;i<num;i++)
+{  if(arr[i]>=0)
+printf("%d ",arr[i]);
+}
+
+printf("\n The negative array is: ");
+for(i=0;i<num;i++)
+{  if(arr[i]<0)
+printf("%d ",arr[i]);
+}
+
+printf("\n The sum of the positive elements is %d ",sum);
+printf("\n The sum of negative elements is %d",sum_neg);
+
+getch();
+}
+
+SUM OF THE ELEMENTS OF THE ARRAY USING POINTER - 
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+
+void main()
+{ int *ptr,i,sum=0,num;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d ",i+1);
+scanf("%d",ptr+i);
+sum = sum + *(ptr+i);
+}
+
+printf("\n The sum of the array is %d ",sum);
+getch();
+}
+
+SUM OF ELEMENTS OF ARRAY USING POINTER AS ARGUMENT - 
+
+#include<stdio.h>
+#include<conio.h>
+int addnum(int *,int);
+
+void main()
+{ int *ptr,i,sum,num;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+sum = addnum(ptr,num);
+printf("\n The sum of the array is %d ",sum);
+getch();
+}
+
+
+int addnum(int *ptr,int n){
+int i,sum=0;
+for(i=0;i<n;i++){
+printf("\n Enter the value %d ",i+1);
+scanf("%d",ptr+i);
+sum = sum + *(ptr+i);
+}
+return sum;
+}
+
+ROTATE ARRAY ONE BY ONE - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,num,rot,arr[50],temp;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+printf("\n Enter the number of rotation: ");
+scanf("%d",&rot);
+
+for(i=0;i<rot;i++){
+   temp = arr[0];     // take first element in temparory variable
+   for(j=0;j<num-1;j++)  // rotate one by one
+   arr[j] = arr[j+1];
+   arr[j]= temp;  // for last element
+}
+printf("\n The array after rotation is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+getch();
+}
+
+
+ROTATE ELEMENTS OF ARRAY BY RIGHT SHIFT - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,num,rot,arr[50],temp;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+printf("\n Enter the number of rotation: ");
+scanf("%d",&rot);
+
+for(i=0;i<rot;i++){
+   temp = arr[num-1];     // take last element in temparory variable
+   for(j=num-1;j>0;j--)  // rotate one by one
+   arr[j] = arr[j-1];
+   arr[j]= temp;  // for first element
+}
+printf("\n The array after rotation is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+getch();
+}
+
+
+FIND THE LARGEST ELEMENT IN THE ARRAY - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,num,arr[50],largest;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+largest = arr[0];
+for(i=0;i<num;i++){
+   if(largest<arr[i])
+   largest = arr[i];
+}
+printf("\n The largest element is %d ",largest);
+getch();
+}
+
+
+FIND LARGEST AND SECOND LARGEST ELEMENT OF ARRAY - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,num,arr[50],largest1,largest2,temp;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+largest1 = arr[0];
+largest2 = arr[1];
+
+if(largest1 < largest2){
+    temp = largest1;
+    largest1 = largest2;
+    largest2 = temp;
+}
+
+for(i=2;i<num;i++){
+   if(largest1<arr[i])  {
+   largest2 = largest1;
+   largest1 = arr[i];
+   }
+ else if(largest2<arr[i])
+       largest2 = arr[i];
+}
+printf("\n The largest element is %d ",largest1);
+printf("\n The sec large element is %d ",largest2);
+getch();
+}
+
+
+
+SEPARATE EVEN AND ODD NUMBERS OF ARRAY - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j=0,num,rot,arr[50],temp,even[20],odd[20],k=0;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+//Separate even and odd numbers: -
+
+for(i=0;i<num;i++) {
+     if(arr[i]%2==0)
+	   { even[j]=arr[i];
+	   j++;}
+       else
+	  { odd[k] =arr[i];
+	  k++;}
+}
+
+printf("\n Even elements are: - ");
+for(i=0;i<j;i++)
+printf("%d ",even[i]);
+
+printf("\n Odd elements are: - ");
+
+for(i=0;i<k;i++)
+printf("%d ",odd[i]);
+
+getch();
+}
+
+
+
+DELETE ANY SPECIFIC ELEMENT FROM THE ARRAY - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,num,arr[50],found=0,pos;
+int key;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+printf("\n Enter the number to be deleted: - ");
+scanf("%d",&key);
+
+for(i=0;i<num;i++){
+if(arr[i]==key){
+found=1;
+pos=i;
+break;
+ }
+}
+ if(found==1){
+for(i=pos;i<num-1;i++){
+   arr[i]=arr[i+1];
+   }
+}
+
+printf("\n The resultant array is:- ");
+for(i=0;i<num-1;i++)
+printf("%d ",arr[i]);
+getch();
+}
+
+
+SEARCH A GIVEN ELEMENT IN ROTATED SORTED ARRAY - 
+
+#include<stdio.h>
+#include<conio.h>
+
+int search(int arr[],int,int,int);
+
+void main()
+{ int i,num,arr[50];
+int key,index;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+printf("\n Enter the number to search: - ");
+scanf("%d",&key);
+
+index = search(arr,0,num-1,key);
+
+if(index != -1)
+printf("\n The key %d is found and its index is  %d",key,index);
+else
+printf("\n Key value not found: - ");
+getch();
+}
+
+int search (int arr[],int l,int h,int key)
+{int mid;
+
+if(l>h)
+return -1;
+
+mid = (l+h)/2;
+if(arr[mid]==key)
+return mid;
+
+if(arr[l]<=arr[mid]){
+if(key>=arr[l] && key<=arr[mid])
+return search(arr,l,mid-1,key);
+
+return search(arr,mid+1,h,key);
+}
+
+if(key>=arr[mid] && key<=arr[h]){
+return search(arr,mid+1,h,key);
+
+return search(arr,l,mid-1,key);
+    }
+}
+
+Find maximum value of Sum( i*arr[i]) with only rotations on given array allowed
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,j,num,rot,arr[50],temp;
+int arrsum=0,currval=0;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+{printf("%d ",arr[i]);
+arrsum = arrsum + arr[i];
+currval = currval + (i*arr[i]);
+}
+
+int maxval = currval;
+
+   for(int m=1;m<num;m++)
+  {   currval = currval +arrsum  -num*arr[num-m];
+   if(currval>maxval)
+    maxval = currval;     }
+
+
+
+printf("\n The array after rotation is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+printf("\n The maximum sum is %d ",maxval);
+getch();
+}
+
+
+Maximum sum of i*arr[i] among all rotations of a given array
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,j,num,arr[50];
+int max=0,currval=0;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+   for(i=0;i<num;i++)
+{  currval = 0;
+      for(j=0;j<num;j++)
+      { int index =(i+j)%num;
+      currval += j* arr[index];
+	 if(currval>max)
+	 max=currval;
+      }
+}
+
+printf("\n The maximum sum is %d ",max);
+getch();
+}
+
+ROTATION COUNT IN SORTED AND ROTATED ARRAY - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,j,num,rot,arr[50],temp;
+int min_index;
+clrscr();
+printf("\n Enter the number of elements in sorted and rotated array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+int min = arr[0];
+for(i=0;i<num;i++)
+{ if(min>arr[i]){
+     min=arr[i];
+    min_index = i;
+     }
+
+}
+printf("\n The no of rotation is %d ",min_index);
+getch();
+}
+
+REVESE AN ARRAY - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,num,arr[50],temp;
+int start,end;
+clrscr();
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+start=0;
+end=num-1;
+
+while(start<end){
+temp = arr[start];
+arr[start] = arr[end];
+arr[end] = temp;
+start++;
+end--;
+}
+
+printf("\n The reverse array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+getch();
+}
+
+ARRAY  WITH RETURNS SUM OF POSITIVE NUMBERS - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,num,arr[50],sum=0;
+
+clrscr();
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=0;i<num;i++){
+     if(arr[i]>0)
+     sum = sum + arr[i];
+}
+
+printf("\n The sum of positive numbers is %d ",sum);
+getch();
+}
+
+SELECTION SORT - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,num,rot,arr[50],temp;
+int min_index;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=0;i<num-1;i++){
+ min_index = i;
+    for(j=i+1;j<num;j++){
+    if(arr[j]<arr[min_index])
+    min_index = j;
+    }
+      if(i!= min_index)
+      {
+      temp = arr[i];
+      arr[i] = arr[min_index];
+      arr[min_index] = temp;
+      }
+}
+printf("\n The array after sorting is: ");
+for(i=0;i<num;i++)
+printf(" %d ",arr[i]);
+
+getch();
+}
+
+CALL BY REFERENCE - 
+
+#include<stdio.h>
+#include<conio.h>
+int swap(int,int);
+
+void main()
+{int a,b;
+printf("\n Enter the values of a & b: ");
+scanf("%d%d",&a,&b);
+swap(a,b);
+printf("\n The values are %d and %d ",a,b);
+getch();
+}
+
+void swap(int a,int b){
+int temp;
+temp=a;
+a=b;
+b=temp;
+reutrn(a,b);
+}
+
+SORT AN ARRAY IN WAVE FORM - 
+
+#include<stdio.h>
+#include<conio.h>
+void swap(int*,int*);
+
+void main()
+{ int i,j,num,rot,arr[50],temp;
+int min_index;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=0;i<num-1;i++){    // sorting by selection sort...
+ min_index = i;
+    for(j=i+1;j<num;j++){
+    if(arr[j]<arr[min_index])
+    min_index = j;
+    }
+      if(i!= min_index)
+      {
+      temp = arr[i];
+      arr[i] = arr[min_index];
+      arr[min_index] = temp;
+      }
+}
+
+printf("\n The array after sorting is: ");
+for(i=0;i<num;i++)
+printf(" %d ",arr[i]);
+
+for(i=0;i<num-1;i+=2)
+swap(&arr[i],&arr[i+1]);
+
+printf("\n The wave form of array: ");
+for(i=0;i<num;i++)
+printf(" %d ",arr[i]);
+
+getch();
+}
+
+
+void swap(int *a,int *b){
+int temp;
+temp=*a;
+*a=*b;
+*b=temp;
+}
+
+
+Rearrange positive and negative numbers with constant extra space - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,j,num,rot,arr[50],temp;
+int min_index;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=1;i<num;i++){    // using insertion sort.
+      temp=arr[i];
+      if(temp>0)
+      continue;
+    for(j=i-1 ;j>=0 && arr[j]>0;j--)
+	arr[j+1]=arr[j];
+	arr[j+1]=temp;
+
+}
+
+printf("\n The array after sorting is: ");
+for(i=0;i<num;i++)
+printf(" %d ",arr[i]);
+
+printf("\n The positive and neg arrange : ");
+for(i=0;i<num;i++)
+printf(" %d ",arr[i]);
+
+getch();
+}
+
+INSERTION SORT - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,j,num,rot,arr[50],temp;
+int min_index;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=1;i<num;i++){    // using insertion sort like playing card number.
+      temp=arr[i];
+    for(j=i-1 ;j>=0 && arr[j]>temp;j--)
+	arr[j+1]=arr[j];
+	arr[j+1]=temp;
+
+}
+
+printf("\n The array after sorting is: ");
+for(i=0;i<num;i++)
+printf(" %d ",arr[i]);
+getch();
+}
+
+CHECK INDEXING OF ARRAY STARTS WITH ZERO - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,j,num,rot,arr[50],temp;
+int min_index;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=1;i<=num;i++)
+printf("%d ",arr[i]);
+
+getch();
+}
+
+Move all negative elements to end in order with extra space allowed - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{int i,j,num,rot,arr[50],temp[50];
+int min_index;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+j=0;
+for(i=0;i<num;i++){   // separate positive numbers...
+      if(arr[i]>=0)
+	temp[j++]=arr[i];
+
+}
+
+for(i=0;i<num;i++){
+      if(arr[i]<0)
+	temp[j++]=arr[i];
+}
+
+
+printf("\n The positive and neg arrange : ");
+for(i=0;i<num;i++)
+printf(" %d ",temp[i]);
+
+getch();
+}
+
+
+Rearrange a sorted array in maximum minimum form - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,num,arr[50],temp[50];
+int small,large;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+small=0,large=num-1;
+int flag=1;
+for(i=0;i<num;i++){
+       if(flag)   // using insertion sort.
+      temp[i]=arr[large--];
+      else
+      temp[i]=arr[small++];
+	flag=!flag;
+}
+
+
+printf("\n The max and min arrangement : ");
+for(i=0;i<num;i++)
+printf(" %d ",temp[i]);
+getch();
+}
+
+LENGTH OF MAXIMUM BITONIC ARRAY - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,num,arr[50],temp[50];
+int max,inc[50],dec[50];
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+inc[0]=1;
+dec[num-1]=1;
+
+for(i=1;i<num;i++)
+inc[i]=arr[i]>=arr[i-1]?inc[i-1]+1:1;
+
+for(i=num-2;i>=0;i--)
+dec[i]=arr[i]>=arr[i+1]?dec[i+1]+1:1;
+
+max = inc[0]+dec[0]-1;
+
+for(i=1;i<num;i++)
+if(inc[i]+dec[i]-1>max)
+max = inc[i]+dec[i]-1;
+printf("\n The bitonic length is %d ",max);
+getch();
+}
+
+ALTERNATIVE SORTING - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,num,arr[50],temp[50];
+int small,large,t;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=1;i<num;i++){     // Insertion Sort
+  t=arr[i];
+  for(int j=i-1;j>=0 && arr[j]>t;j--)
+  arr[j+1]=arr[j];
+  arr[j+1]=t;
+  }
+
+small=0,large=num-1;
+int flag=1;
+for(i=0;i<num;i++){
+       if(flag)   // using insertion sort.
+      temp[i]=arr[large--];
+      else
+      temp[i]=arr[small++];
+	flag=!flag;
+}
+
+printf("\n The max and min arrangement : ");
+for(i=0;i<num;i++)
+printf(" %d ",temp[i]);
+getch();
+}
+
+SEPARATING EVEN ODD NUMBERS OF AN ARRAY - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,num,arr[50],temp[50];
+int even[50],odd[50],t;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+int j=0,k=0;
+for(i=0;i<num;i++)
+{ if(arr[i]%2==0)
+  even[j++]=arr[i];
+  else
+  odd[k++]=arr[i];
+}
+
+printf("\n Separating even odd");
+printf("\n Even: ");
+for(i=0;i<j;i++)
+printf("%d ",even[i]);
+
+printf("\n Odd: ");
+for(i=0;i<k;i++)
+printf("%d ",odd[i]);
+getch();
+}
+
+Replace every element with the greatest element on right side - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,num,arr[50],temp;
+int j,max_right;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+max_right = arr[num-1];
+arr[num-1]=-1;
+
+for(i=num-2;i>=0;i--){
+  temp = arr[i];
+  arr[i] = max_right;
+  if(max_right < temp)
+  max_right = temp;
+}
+
+
+printf("\n The resultant array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+getch();
+}
+
+naive method : Replace every element with the greatest element on right side - 
+
+ 
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,num,arr[50],temp;
+int j,max_index;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=0;i<num-1;i++){   //take help from selection sort.
+  max_index = i+1;
+    for(j=i+1;j<num;j++){
+    if(arr[j]>=arr[max_index])
+    max_index = j;
+    }
+    arr[i]=arr[max_index];
+}
+arr[num-1]=-1;
+
+printf("\n The resultant array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+getch();
+}
+
+
+Largest Sum Contiguous Subarray
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,num,arr[50],temp[50];
+int start=0,end =0, s = 0,max_far=0, max_here = 0,j=0,curr_max;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=0;i<num;i++){
+max_here = max_here + arr[i];
+
+if(max_far < max_here)
+       {max_far = max_here;start =s,end =i;}
+
+   if(max_here< 0)
+  { max_here = 0;s=i+1;}
+}
+
+for(i=start;i<=end;i++)
+temp[j++]=arr[i];
+
+printf("\n The sum of longest sub array is %d ",max_far);
+printf("\n The start and end index are %d & %d ",start,end);
+printf("\n The array is: ");
+
+for(i=0;i<=(end-start);i++)
+printf("%d ",temp[i]);
+getch();
+}
+
+Rearrange an array such that ‘arr[j]’ becomes ‘i’ if ‘arr[i]’ is ‘j’ - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,num,arr[50],temp[50],j;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=0;i<num;i++)
+   temp[arr[i]]=i; //logic.
+
+printf("\n The rearrange array is: ");
+for(i=0;i<num;i++)
+printf("%d ",temp[i]);
+
+getch();
+}
+
+
+Replace every array element by multiplication of previous and next
+
+a) First element is replaced by multiplication of first and second.
+b) Last element is replaced by multiplication of last and second last.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,num,arr[50],temp[50],j;
+int prev,curr;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+prev = arr[0];
+arr[0]=arr[0]*arr[1];
+for(i=1;i<num-1;i++)
+{ curr = arr[i];
+  arr[i]=prev *arr[i+1];
+  prev = curr;
+}
+arr[num-1] = prev * arr[num-1];
+
+printf("\n The new array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+getch();
+}
+
+
+Program to find largest element in an array: - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,num,arr[50],temp[50],j;
+int max;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+max=arr[0];
+for(i=1;i<num;i++){
+    if(arr[i]>max)
+    max = arr[i];
+    }
+printf("\n The maximum element is %d ",max);
+getch();
+}
+
+
+K’th Smallest/Largest Element in Unsorted Array - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,j,num,rot,arr[50],temp;
+int k;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=1;i<num;i++){    // using insertion sort like playing card number.
+      temp=arr[i];
+    for(j=i-1 ;j>=0 && arr[j]>temp;j--)
+	arr[j+1]=arr[j];
+	arr[j+1]=temp;
+
+}
+
+printf("\n The array after sorting is: ");
+for(i=0;i<num;i++)
+printf(" %d ",arr[i]);
+
+printf("\n Enter index of kth smallest: ");
+scanf("%d",&k);
+int key = arr[k-1];
+printf("\n The %d small element is %d ",k,key);
+
+int l,large;
+printf("\n Enter index of kth largest: ");
+scanf("%d",&l);
+large = arr[num-l];
+printf("\n The %d large element is %d",l,large);
+getch();
+}
+
+
+Find Next Greater Element of array - 
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,j,num,rot,arr[50],temp[50],next;
+int k;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+ k=0;
+for(i=0;i<num;i++){
+
+  for(j=i+1;i<num;j++)
+  {  if(arr[i]<arr[j])
+      {temp[k++]= arr[j];
+      break;
+      }
+      else {temp[k++]=-1;}
+  }
+
+  }
+printf("\n The next greater are:");
+for(i=0;i<num;i++)
+printf("%d ",temp[i]);
+getch();
+}
+
+Find the maximum repeating number in an array : - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,num,arr[50];
+int max,maxcount=0;
+clrscr();
+printf("\n Enter the number of elements: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The input array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+for(i=0;i<num;i++){
+int count=0;
+for(j=i+1;j<num;j++){
+  if(arr[i]==arr[j])
+  count++;
+  if(maxcount<count)
+      {maxcount=count;
+       max=arr[i];}
+  }
+}
+printf("\n The max repeated element is %d and %d times",max,maxcount);
+getch();
+}
+
+
+Maximum Sum Path in Two Arrays : -
+
+Given two sorted arrays such the arrays may have some common elements. 
+Find the sum of the maximum sum path to reach from beginning of any array to end of any of the two arrays.
+We can switch from one array to another array only at common elements.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,num2,arr1[50],num1,arr2[50];
+int sum1=0,sum2=0,result=0;
+clrscr();
+printf("\n Enter the number of elements in first array: ");
+scanf("%d",&num1);
+
+for(i=0;i<num1;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr1[i]);
+}
+
+printf("\n The first array is: ");
+for(i=0;i<num1;i++)
+printf("%d ",arr1[i]);
+
+printf("\n Enter the number of elements in second array: ");
+scanf("%d",&num2);
+
+for(i=0;i<num2;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr2[i]);
+}
+
+printf("\n The second array is: ");
+for(i=0;i<num2;i++)
+printf("%d ",arr2[i]);
+
+i=0,j=0;
+while(i<num1 && j<num2){
+  if(arr1[i]<arr2[j])
+     sum1 += arr1[i++];
+  else if(arr1[i]>arr2[j])
+     sum2 += arr2[j++];
+
+  else{ // meet same element
+       if(sum1>sum2)
+       result +=sum1;
+       else
+       result +=sum2;
+       sum1 =0,sum2=0;
+
+       while(i<num1 && j<num2 && arr1[i]==arr2[j]) {
+       result = result+ arr1[i++];
+       j++;
+
+       }
+    }
+ }
+     //add remaning element
+     while(i<num1)
+     sum1 += arr1[i++];
+     while (j<num2)
+     sum2 +=arr2[j++];
+
+       if(sum1>sum2)
+       result +=sum1;
+       else
+       result +=sum2;
+ printf("\n The max pair sum is %d ",result);
+getch();
+}
+
+
+Find the closest pair from two sorted arrays
+Given two sorted arrays and a number x, find the pair whose sum is closest to x 
+and the pair has an element from each array.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,num2,arr1[50],num1,arr2[50];
+int diff,mindiff=1000,result[5],x;
+clrscr();
+printf("\n Enter the number of elements in first array: ");
+scanf("%d",&num1);
+
+for(i=0;i<num1;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr1[i]);
+}
+
+printf("\n The first array is: ");
+for(i=0;i<num1;i++)
+printf("%d ",arr1[i]);
+
+printf("\n Enter the number of elements in second array: ");
+scanf("%d",&num2);
+for(i=0;i<num2;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr2[i]);
+}
+
+printf("\n The second array is: ");
+for(i=0;i<num2;i++)
+printf("%d ",arr2[i]);
+
+printf("\n Enter the value of x: ");
+scanf("%d",&x);
+for(i=0;i<=num1;i++){
+   arr1[i];
+   for(j=0;j<num2;j++){
+     arr2[j];
+    diff= (arr1[i]+arr2[j])>=x?(arr1[i]+arr2[j])-x:x - (arr1[i]+arr2[j]);
+
+      if(diff<mindiff)
+     {mindiff=diff ;
+      result[0]=arr1[i];
+      result[1]=arr2[j];
+     }
+     }
+   }
+printf("\n The min difference is %d",mindiff);
+printf("\n The elements are %d, %d",result[0],result[1]);
+getch();
+}
+
+
+Find the largest pair sum in an unsorted array
+Given an unsorted of distinct integers, find the largest pair sum in it.
+ For example, the largest pair sum in {12, 34, 10, 6, 40} is 74.
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,a[50],num,arr2[50];
+int result,first,second;
+clrscr();
+printf("\n Enter the number of elements in first array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The first array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+
+if(a[0]>=a[1])
+{first = a[0];
+second = a[1]; }
+else
+   {first = a[1];
+   second = a[0];}
+
+   for(i=2;i<num;i++){
+     if(a[i]>=first)
+     {second = first;
+      first = a[i];
+      }
+      if(a[i]>second &&a[i]<first)
+      second = a[i];
+   }
+   result = first + second;
+   printf("\n The largest sum is %d ",result);
+   printf("\n The largest two numbers are %d %d",first,second);
+
+getch();
+}
+
+
+Smallest greater elements in whole array : - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,a[50],num,arr2[50];
+
+clrscr();
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+
+printf("\n The closest greater: ");
+for(i=0;i<num;i++){
+    int diff = 9000,closest = -1;
+    for(j=0;j<num;j++){
+     if(a[i]<a[j] && a[j]-a[i]<diff)
+	{  diff = a[j]-a[i];
+	    closest = j;
+	   }
+    }
+    closest==-1?printf("_ "):printf("%d ",a[closest]);
+}
+getch();
+}
+
+
+Count Strictly Increasing Subarrays
+Given an array of integers, count number of subarrays (of size more than one) that are strictly increasing.
+
+Examples:
+
+Input: arr[] = {1, 4, 3}
+Output: 1
+There is only one subarray {1, 4}
+
+Input: arr[] = {1, 2, 3, 4}
+Output: 6
+There are 6 subarrays {1, 2}, {1, 2, 3}, {1, 2, 3, 4}
+                      {2, 3}, {2, 3, 4} and {3, 4}
+
+Input: arr[] = {1, 2, 2, 4}
+Output: 2
+There are 2 subarrays {1, 2} and {2, 4}
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,j,a[50],num,arr2[50];
+
+clrscr();
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+
+int count=0;
+for(i=0;i<num;i++){
+  for(j=i+1;j<num;j++){
+       if(a[j]>a[j-1])
+       count++;
+       else
+       break;
+     }
+  }
+
+printf("\n The increasing subarray are %d:",count);
+getch();
+}
+
+
+GCDs of given index ranges in an array : - 
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{ int i,l,r,arr[50],num;
+int a,b,temp,min,times,j,k;;
+clrscr();
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+printf("\n How many times would you like to find gcd: ");
+scanf("%d",&times);
+
+for(j=0;j<times;j++){
+printf("\n Enter the range for gcd no: ");
+scanf("%d%d",&l,&r);
+int min = 9999;
+for(i=l;i<r;i++){
+ a=arr[i];
+ for(k=i+1;k<=r;k++){
+  b=arr[k];
+ if(a<b)
+  temp =a;
+  a=b;
+  b=temp;
+while(b!=0){
+temp=a;
+a=b;
+b=temp%b;
+  }
+if(a<min)
+min=a;
+ }// End of k loop 
+}//End of i loop
+printf("\n The gcd of this range is %d",min);
+}//End of j loop
+getch();
+}
+
+
+Largest Sum Contiguous Subarray :-
+
+#include<stdio.h>
+#include<conio.h>
+
+
+void main()
+{ int i,arr[50],num,a;
+int curr_max,max_tillnow=0;
+clrscr();
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+curr_max=arr[0];
+for(i=1;i<num;i++){
+curr_max =(arr[i]>=curr_max+arr[i])?arr[i]:(curr_max+arr[i]);
+max_tillnow = (curr_max>=max_tillnow)?curr_max:max_tillnow;
+}
+printf("\n The maximum sum is %d",max_tillnow);
+getch();
+}
+
+Search, insert and delete in an unsorted array :-
+
+#include<stdio.h>
+#include<conio.h>
+int findElement(int[],int,int);
+insertElement(int[],int,int,int);
+deletePosition(int[],int,int);
+
+void main()
+{ int i,arr[50],num,a,key,ch;
+int index,n,pos;
+clrscr();
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&arr[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",arr[i]);
+
+while(1)
+    {
+      printf("\n\n1. Find the index of key element: ");
+      printf("\n2. Insert the element");
+      printf("\n3. Delete Position : ");
+      printf("\n4. Exit:");
+      printf("\n Enter your choice: ");
+      scanf("%d",&ch);
+       if(ch==4)
+       break;
+      switch(ch){
+      case 1:printf("\n Enter the key whose index is to found: ");
+	     scanf("%d",&key);
+	     int k= findElement(arr,num,key);
+	     printf("\n The index of key is %d",k);
+	     break;
+
+     case 2:printf("\n Enter the index for new element: ");
+	    scanf("%d",&index);
+	    printf("\n Enter the new element: ");
+	    scanf("%d",&key);
+	    insertElement(arr,index,key,num);
+	    break;
+    case 3:printf("\n Enter the position to delete: ");
+	   scanf("%d",&pos);
+	  deletePosition(arr,pos,num);
+	  break;
+    default:printf("\n Invalid Choice: ");
+    }
+}
+
+getch();
+}
+
+int findElement(int arr[],int num,int key)
+{
+int i;
+for(i=0;i<num;i++)
+ if(arr[i]== key )
+    return i;
+return -1;
+}
+
+insertElement(int arr[],int index,int key,int num)
+{ int i;
+if(index>=num)
+  index=num;
+  for(i=num;i>=index;i--)
+      arr[i]=arr[i-1];
+  arr[index]=key;
+  num++;
+  printf("\n The array after insertion: ");
+	    for(i=0;i<num;i++)
+	    printf("%d ",arr[i]);
+}
+
+deletePosition(int arr[],int pos,int num)
+{  if(pos ==-1 || pos>=num)
+    printf("\n Position not found: ");
+    for(int i=pos;i<num;i++)
+    arr[i]=arr[i+1];
+    num--;
+    printf("\n The array after delition: ");
+     for(i=0;i<num;i++)
+     printf("%d ",arr[i]);
+}
+
+Given an array A[] and a number x, check for pair in A[] with sum as x :-
+
+#include<stdio.h>
+#include<conio.h>
+int givenSum(int[],int,int);
+
+void main()
+{ int i,j,a[50],num,sum;
+
+clrscr();
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+
+printf("\n Enter your desired sum: ");
+scanf("%d",&sum);
+
+int k = givenSum(a,sum,num);
+if(k==1)
+printf("\n The array pair has given sum:");
+else
+printf("\n The array pair doesn't have given sum:");
+
+getch();
+}
+
+int givenSum(int a[],int sum,int num){
+
+for(int i=0;i<num-1;i++)
+{ for(int j=i+1;j<num;j++)
+    {if(a[i]+a[j]==sum)
+     return 1;
+     else
+     return 0;
+     }
+  }
+}
+
+
+
+Maximum equlibrium sum in an array
+Given an array arr[]. Find maximum value of
+prefix sum which is also suffix sum for index i in arr[].
+
+#include<stdio.h>
+
+int findMaxSum(int [],int);
+
+int  main()
+{ int i,j,a[50],num,sum,r;
+
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+
+r = findMaxSum(a,num);
+printf("\n The max eqlibriam sum is %d ",r);
+
+}
+
+int findMaxSum(int arr[],int n){
+	int res = 0,i,j,prefix_sum,suffix_sum;
+	for(i=0;i<n;i++){
+		prefix_sum = arr[i];
+		for(j=0;j<i;j++)
+		prefix_sum += arr[j];
+		
+		suffix_sum = arr[i];
+		for(j=n-1;j>i;j--)
+		suffix_sum += arr[j];
+		
+		if(prefix_sum == suffix_sum)
+		   if(prefix_sum>res)
+			res = prefix_sum;
+		
+	}
+	return res;
+}
+
+
+Equilibrium index of an array
+Equilibrium index of an array is an index such that the sum of elements at lower indexes 
+is equal to the sum of elements at higher indexes.
+
+#include<stdio.h>
+int equilibrium(int [], int );
+
+
+int  main()
+{ int i,j,a[50],num,sum,r;
+
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+
+r = equilibrium(a,num);
+printf("\n The equilibrium index is %d: ",r);
+
+return 0;
+}
+
+int equilibrium(int arr[], int n) 
+    {
+        int i, j;
+        int leftsum, rightsum;
+ 
+        /* Check for indexes one by one until an equilibrium
+           index is found */
+        for (i = 0; i < n; i++) 
+        {
+            leftsum = 0;  // initialize left sum for current index i
+            rightsum = 0; // initialize right sum for current index i
+ 
+            /* get left sum */
+            for (j = 0; j < i; j++)
+                leftsum += arr[j];
+ 
+            /* get right sum */
+            for (j = i + 1; j < n; j++)
+                rightsum += arr[j];
+ 
+            /* if leftsum and rightsum are same, then we are done */
+            if (leftsum == rightsum)
+                return i;
+        }
+ 
+        /* return -1 if no equilibrium index is found */
+        return -1;
+    }
+
+
+
+Ceiling in a sorted array
+
+Given a sorted array and a value x, the ceiling of x is the smallest element in array greater than or equal to x,
+and the floor is the greatest element smaller than or equal to x. 
+Assume than the array is sorted in non-decreasing order. 
+Write efficient functions to find floor and ceiling of x.
+
+
+
+#include<stdio.h>
+
+int ceilSearch(int[],int,int,int);
+
+int  main()
+{ int i,j,a[50],num,sum,low,high,x,r;
+
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+
+low =a[0];
+high = a[num-1];
+
+printf("\n Enter the value to find its ceiling: ");
+scanf("%d",&x);
+
+r = ceilSearch(a,low,high,4x);
+
+if(r==-1)
+printf("Ceiling doesn't exist: ");
+else
+printf("Ceiling of %d is %d",x,a[r]);
+}
+
+
+/* Function to get index of ceiling of x in arr[low..high] */
+int ceilSearch(int arr[], int low, int high, int x)
+{
+  int i;    
+ 
+  /* If x is smaller than or equal to first element,
+    then return the first element */
+  if(x <= arr[low])
+    return low;  
+ 
+  /* Otherwise, linearly search for ceil value */
+  for(i = low; i < high; i++)
+  {
+    if(arr[i] == x)
+      return i;
+ 
+    /* if x lies between arr[i] and arr[i+1] including
+       arr[i+1], then return arr[i+1] */
+    if(arr[i] < x && arr[i+1] >= x)
+       return i+1;
+  }         
+ 
+  /* If we reach here then x is greater than the last element 
+    of the array,  return -1 in this case */
+  return -1;
+}
+
+
+
+Majority Element
+Write a function which takes an array and prints the majority element (if it exists), 
+otherwise prints “No Majority Element”. A majority element in an array A[] of size n is an element that appears more 
+than n/2 times (and hence there is at most one such element). 
+
+#include<stdio.h>
+void findMajority(int arr[], int n);
+
+int  main()
+{ int i,j,a[50],num,sum,low,high,x,r;
+
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+
+findMajority(a, num);
+}
+
+void findMajority(int arr[], int n)
+{ printf("\n The majority element is: ");
+
+    int maxCount = 0; 
+    int index = -1; // sentinels
+    for(int i = 0; i < n; i++)
+    {
+        int count = 0;
+        for(int j = 0; j < n; j++)
+        {
+            if(arr[i] == arr[j])
+            count++;
+        }
+         
+        // update maxCount if count of 
+        // current element is greater
+        if(count > maxCount)
+        {
+            maxCount = count;
+            index = i;
+        }
+    }
+     
+    // if maxCount is greater than n/2 
+    // return the corresponding element 
+    if (maxCount > n/2)
+       printf("%d ",arr[index]);
+     
+    else
+        printf("No Majority Element");
+}
+
+fixed point 
+
+#include<stdio.h>
+int linearSearch(int arr[], int n);
+
+int  main()
+{ int i,j,a[50],num,sum,r;
+
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+r = linearSearch(a, num);
+printf("\n The fixed point is : %d",r);
+
+}
+
+int linearSearch(int arr[], int n)
+{
+    int i;
+    for(i = 0; i < n; i++)
+    {
+        if(arr[i] == i)
+            return i;
+    }
+ 
+    /* If no fixed point present then return -1 */
+    return -1;
+}
+
+
+
+Find a Fixed Point (Value equal to index) in a given array: - 
+
+#include<stdio.h>
+void linearSearch(int arr[], int n);
+
+int  main()
+{ int i,j,a[50],num,sum,r;
+
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+linearSearch(a, num);
+
+
+}
+
+void linearSearch(int arr[], int n)
+{ printf("\n Fixed point are : ");
+    int i;int flag=0;
+    for(i = 0; i < n; i++)
+    {
+        if(arr[i] == i)
+            { 
+            printf("%d ",i);flag=1;
+			}
+    }
+    if(!flag)
+    printf("---");
+}
+
+MAXIMUM TRIPLET SUM:-
+
+#include<stdio.h>
+int maxTripletSum(int arr[], int n);
+
+int  main()
+{ int i,j,a[50],num,sum,r;
+
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+sum=maxTripletSum( a,  num);
+printf("\n The max triplet sum is: %d",sum);
+}
+
+int maxTripletSum(int arr[], int n)
+{
+    // Initialize sum with INT_MIN
+    int sum = 0;
+ 
+    for (int i = 0; i < n-2; i++)
+        for (int j = i + 1; j < n-1; j++)
+            for (int k = j + 1; k < n; k++) 
+                if (sum < arr[i] + arr[j] + arr[k]) 
+                    sum = arr[i] + arr[j] + arr[k];                
+    return sum;         
+}
+
+FIND TRIPLET HAS GIVEN SUM:-
+
+#include<stdio.h>
+void maxTripletSum(int arr[], int n,int );
+
+int  main()
+{ int i,j,a[50],num,sum,r;
+
+printf("\n Enter the number of elements in array: ");
+scanf("%d",&num);
+
+for(i=0;i<num;i++){
+printf("\n Enter the value %d : ",i+1);
+scanf("%d",&a[i]);
+}
+
+printf("\n The array is: ");
+for(i=0;i<num;i++)
+printf("%d ",a[i]);
+
+printf("\n Enter your choice sum value: ");
+scanf("%d",&sum);
+maxTripletSum( a,  num,sum);
+
+}
+
+void maxTripletSum(int arr[], int n,int sum)
+{
+    
+ 
+    for (int i = 0; i < n-2; i++)
+        for (int j = i + 1; j < n-1; j++)
+            for (int k = j + 1; k < n; k++) 
+                if ( arr[i] + arr[j] + arr[k]==sum) 
+                    printf("\n The numbers for given sum: %d %d %d",arr[i],arr[j],arr[k]);               
+    			
+}
+
+Final 450
+
+1.Find kth smallest element of an array
+
+public static void main(String[] args) {
+        int n,k;
+        System.out.print("Enter the number of elements of array: ");//Enter 101
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        int[]arr = new int[n];
+
+        System.out.println("Enter elements in sorted and consecutive order: ");
+
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            arr[i] = scanner.nextInt();
+        System.out.print("Enter the value of k: ");
+        k = scanner.nextInt();
+        Arrays.sort(arr);
+        System.out.print("The required element is : "+arr[k-1]);
+    }
+
+
+2. /**Sort array of 0,1 and 2 without any sorting algo **/
+    public static void main(String[] args) {
+        int n;
+        int i, cnt0 = 0, cnt1 = 0, cnt2 = 0;
+        System.out.print("Enter the number of elements of array: ");//Enter 101
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        int[]arr = new int[n];
+
+        System.out.println("Enter elements 0 , 1 n 2: ");
+
+        for ( i = 0;i<n;i++)  // inserting n elements in the array;
+            arr[i] = scanner.nextInt();
+
+        System.out.println("The array is: ");
+        for (i = 0;i<n;i++)  // inserting n elements in the array;
+            System.out.print(arr[i]+" ");
+
+        for (i = 0; i < n; i++) {
+            switch (arr[i]) {
+                case 0:
+                    cnt0++;
+                    break;
+                case 1:
+                    cnt1++;
+                    break;
+                case 2:
+                    cnt2++;
+                    break;
+            }
+        }
+        // Update the array
+        i = 0;
+
+        // Store all the 0s in the beginning
+        while (cnt0 > 0) {
+            arr[i++] = 0;
+            cnt0--;
+        }
+
+        // Then all the 1s
+        while (cnt1 > 0) {
+            arr[i++] = 1;
+            cnt1--;
+        }
+
+        // Finally all the 2s
+        while (cnt2 > 0) {
+            arr[i++] = 2;
+            cnt2--;
+        }
+        System.out.println("\nSorted Array is : ");
+        for (i = 0; i < n; i++)
+            System.out.print(arr[i] + " ");
+    }
+
+3. /**Rotate array clockwise n anticlockwise **/
+    public static void main(String[] args) {
+        int n;
+        System.out.print("Enter the number of elements of array: ");//Enter 101
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        int[]arr = new int[n];
+
+        System.out.println("Enter elements: ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            arr[i] = scanner.nextInt();
+        System.out.println("\nThe array is : ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            System.out.print(arr[i]+" ");
+        /**Logic to rotate clockwise **/
+        int temp = arr[n-1];
+        for (int i = n-1;i>0;i--)  // inserting n elements in the array;
+                arr[i]= arr[i-1];
+                arr[0]= temp; //for last element
+            //   System.out.print(arr[i]+" ");
+
+        System.out.println("\nThe clock-rotated array is : ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            System.out.print(arr[i]+" ");
+        /**Logic to rotate anticlockwise **/
+         temp = arr[0];
+        for (int i = 0;i<n-1;i++)  // inserting n elements in the array;
+            arr[i]= arr[i+1];
+        arr[n-1]= temp;
+
+        System.out.println("\nThe anti-rotated array is : ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            System.out.print(arr[i]+" ");
+    }
+
+4.Find max contiguous sub-array 
+
+	public static void main(String[] args) {
+        int n;
+        System.out.print("Enter the number of elements of array: ");//Enter 101
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        int[]arr = new int[n];
+
+        System.out.println("Enter elements: ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            arr[i] = scanner.nextInt();
+        System.out.println("\nThe array is : ");
+        for (int i = 0;i<n;i++)
+            System.out.print(arr[i]+" ");
+        int max_sum = maxSubArraySum(arr, n);
+        System.out.println("Maximum contiguous sum is "
+                + max_sum);
+    }
+
+    static int maxSubArraySum(int a[], int size)
+    {
+        int max_so_far = a[0];
+        int curr_max = a[0];
+
+        for (int i = 1; i < size; i++)
+        {
+            curr_max = Math.max(a[i], curr_max+a[i]);
+            max_so_far = Math.max(max_so_far, curr_max);
+        }
+        return max_so_far;
+    }
+
+final 450:- 
+
+5. Find kth smallest element of array:-
+
+public static void main(String[] args) {
+        int n,k;
+        System.out.print("Enter the number of elements of array: ");//Enter 101
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        int[]arr = new int[n];
+
+        System.out.println("Enter elements in sorted and consecutive order: ");
+
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            arr[i] = scanner.nextInt();
+        System.out.print("Enter the value of k: ");
+        k = scanner.nextInt();
+        Arr
+        System.out.print("The required element is : "+arr[k-1]);
+    }
+
+
+6. public static void main(String[] args) {
+        int n,k;
+        System.out.print("Enter the number of elements first array: ");//Enter 101
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        int[]arr1 = new int[n];
+
+        System.out.println("Enter elements: ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            arr1[i] = scanner.nextInt();
+        System.out.println("\nThe first array is : ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            System.out.print(arr1[i]+" ");
+        System.out.print("\nEnter the number of elements second array: ");//Enter 101
+        n = scanner.nextInt();
+        int[]arr2 = new int[n];
+        System.out.println("Enter elements: ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            arr2[i] = scanner.nextInt();
+        System.out.println("\nThe second array is : ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            System.out.print(arr2[i]+" ");
+        printUnion(arr1, arr2);
+        System.out.println("\nThe Intersection is :");
+        printIntersection(arr1, arr2);
+    }
+
+    static void printUnion(int arr1[], int arr2[])
+    {
+        HashSet<Integer> hs = new HashSet<>();
+
+        for (int i = 0; i < arr1.length; i++)
+            hs.add(arr1[i]);
+        for (int i = 0; i < arr2.length; i++)
+            hs.add(arr2[i]);
+        System.out.println("\nThe union is :");
+        System.out.println(hs);
+    }
+
+    static void printIntersection(int arr1[], int arr2[])
+    {
+        HashSet<Integer> hs = new HashSet<>();
+        for (int i = 0; i < arr1.length; i++)
+            hs.add(arr1[i]);
+
+        for
+ (int i = 0; i < arr2.length; i++)
+            if (hs.contains(arr2[i]))
+                System.out.print(arr2[i] + " ");
+    }
+
+ 
+
+final 450:- 
+
+  1.    public static void main(String[] args) {
+        int n,k;
+        System.out.print("Enter the number of elements of array: ");//Enter 101
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        int[]arr = new int[n];
+
+        System.out.println("Enter elements in sorted and consecutive order: ");
+
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            arr[i] = scanner.nextInt();
+        System.out.print("Enter the value of k: ");
+        k = scanner.nextInt();
+        Arrays.sort(arr);
+        System.out.print("The required element is : "+arr[k-1]);
+    }
+
+2. 	public static void main(String[] args) {
+        int n;
+        System.out.print("Enter the number of elements first array: ");//Enter 101
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        int[]arr1 = new int[n];
+
+        System.out.println("Enter elements: ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            arr1[i] = scanner.nextInt();
+        System.out.println("\nThe first array is : ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            System.out.print(arr1[i]+" ");
+        System.out.print("\nEnter the number of elements second array: ");//Enter 101
+        n = scanner.nextInt();
+        int[]arr2 = new int[n];
+        System.out.println("Enter elements: ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            arr2[i] = scanner.nextInt();
+        System.out.println("\nThe second array is : ");
+        for (int i = 0;i<n;i++)  // inserting n elements in the array;
+            System.out.print(arr2[i]+" ");
+        printUnion(arr1, arr2);
+        System.out.println("\nThe Intersection is :");
+        printIntersection(arr1, arr2);
+    }
+
+    static void printUnion(int arr1[], int arr2[])
+    {
+        HashSet<Integer> hs = new HashSet<>();
+
+        for (int i = 0; i < arr1.length; i++)
+            hs.add(arr1[i]);
+        for (int i = 0; i < arr2.length; i++)
+            hs.add(arr2[i]);
+        System.out.println("\nThe union is :");
+        System.out.println(hs);
+    }
+
+    static void printIntersection(int arr1[], int arr2[])
+    {
+        HashSet<Integer> hs = new HashSet<>();
+
+        for (int i = 0; i < arr1.length; i++)
+            hs.add(arr1[i]);
+
+        for (int i = 0; i < arr2.length; i++)
+            if (hs.contains(arr2[i]))
+                System.out.print(arr2[i] + " ");
+    }
+
+
+3 . print duplicate elements in an array
+	#include<stdio.h>
+
+	int main(){
+	int n,arr[100],i,j;
+	printf("Enter the number of elements in array: ");
+	scanf("%d",&n);
+	
+	for(i=0;i<n;i++){
+	printf("\n Enter the element %d:  ",i+1);	
+	scanf("%d",&arr[i]);
+	}
+	
+	printf("The array is");
+	for(i=0;i<n;i++)
+	printf("%d ",arr[i]);
+	
+	printf("\n The duplicates are : ");
+	for(i=0;i<n;i++){
+		for(j=i+1;j<n;j++){
+			if(arr[i]==arr[j])
+			printf("%d ",arr[j]);
+		}
+	}
+}
