@@ -2592,3 +2592,93 @@ final 450:-
 		}
 	}
 }
+
+4. Merge two sorted array without any extra space.
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();
+        int n= sc.nextInt();
+        int a[] = new int[m];
+        int b[] = new int[n];
+        int result[] = new int[m+n];
+
+        for (int i=0;i<m;i++){
+            a[i] = sc.nextInt();
+        }
+
+        for (int j=0;j<n;j++){
+            b[j]= sc.nextInt();
+        }
+        int i= m-1;
+        int j = 0;
+        while (i>=0 && j<n){
+            int temp;
+            if (a[i]>b[j]){
+               temp = a[i];
+               a[i] = b[j];
+               b[j] = temp;
+            }
+            i--;
+            j++;
+        }
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        for (i=0;i<m;i++){
+            result[i] = a[i];
+        }
+
+        for (i=0;i<n;i++){
+            result[m+i] = b[i];
+        }
+
+        System.out.println("The result array is: ");
+        for (i=0;i<m+n;i++){
+            System.out.print(result[i]+" ");
+        }
+    }
+
+
+5. Maximaum sub array problem dyanamic programming:- 
+    public class KadenaAlgo {
+    public static void main(String[] args) {
+        int [] a = {-2, -3, 4, -1, -2, 1, 5, -3};
+        System.out.println("Maximum contiguous sum is " +
+                maxSubArraySum(a));
+    }
+
+    static int maxSubArraySum(int a[])
+    {
+        int size = a.length;
+        int max = a[0];
+        int max_so_far = a[0];
+        for (int i=1;i<size;i++){
+                max_so_far = Math.max(a[i],max_so_far+a[i]);
+                if (max_so_far>max)
+                    max = max_so_far;
+        }
+        return max;
+    }
+}
+
+6. maximum subarray problem nested loop 
+    public class KadenaAlgo {
+    public static void main(String[] args) {
+        int [] a = {-2, -3, 4, -1, -2, 1, 5, -3};
+        System.out.println("Maximum contiguous sum is " +
+                maxSubArraySum(a));
+    }
+
+    static int maxSubArraySum(int a[])
+    {
+        int size = a.length;
+        int max = a[0];
+        int max_so_far = a[0];
+        for (int i=1;i<size;i++){
+                max_so_far = Math.max(a[i],max_so_far+a[i]);
+                if (max_so_far>max)
+                    max = max_so_far;
+        }
+        return max;
+    }
+}
