@@ -2963,5 +2963,137 @@ public class SumSubarray {
     }
 }
 
+15. Longest consecutive subsequence :- 
+public static void main(String[] args) {
+      int   arr[] = {2,6,1,9,4,5,3};
+      int n = arr.length;
+      int result = findLongestConseqSubseq(arr,n);
+        System.out.println("Longest consecutive subquence: "+result);
+    }
 
+    static int findLongestConseqSubseq(int arr[], int n)
+    {
+        Set<Integer> set = new HashSet<>();
+        for(int i:arr)
+            set.add(i);
+    
+        int ans = 0;
+        for(int i=0;i<n;i++){
+            if(!set.contains(arr[i]-1)){
+                int j = arr[i]+1;
+                while(set.contains(j))
+                    j++;
+                ans = Math.max(ans,j-arr[i]);
 
+            }
+        }
+        return ans;
+    }
+
+16. Find wether an array is subset of another:-
+
+public static void main(String[] args)
+    {
+        int arr1[] = { 11, 1, 13, 21, 3, 7 };
+        int arr2[] = { 11, 3, 7, 1 };
+
+        int m = arr1.length;
+        int n = arr2.length;
+        String result = isSubset(arr1,arr2,m,n);
+        System.out.println("The second array is subset of first: "+result);
+
+    }
+    static String isSubset(int arr1[],
+                            int arr2[], int m,
+                            int n)
+    {
+        HashSet<Integer> hset = new HashSet<>();
+        for (int i = 0; i < m; i++) {
+                hset.add(arr1[i]);
+        }
+
+        for (int i = 0; i < n; i++)
+        {
+            if (!hset.contains(arr2[i]))
+                return "No";
+        }
+        return "Yes";
+    }
+
+17. Find if triplet exist with given sum.
+
+	public static void main(String[] args) {
+        int arr[] = {1, 4, 45, 6 ,10, 8};
+        int n = arr.length;
+        int sumBe = 15;
+        boolean ans = find3Numbers(arr,n,sumBe);
+        System.out.println("The given sum exist: "+ans);
+    }
+    	public static boolean find3Numbers(int arr[], int n, int x) {
+        Arrays.sort(arr);
+        for(int i=0;i<n-2;i++){
+            int j= i+1;
+            int k = n-1;
+            int sum = x-arr[i];
+            while(j<k){
+                if(arr[j]+arr[k]==sum)
+                    return true;
+                if(arr[j]+arr[k]<sum)
+                    j++;
+                else
+                    k--;
+            }
+        }
+        return false;
+    }
+
+18. Traping rain water problem :-
+
+	public static void main(String[] args) {
+       int  arr[] = {3,0,0,2,0,4};
+       int n = arr.length;
+       int waterUnit = trappingWater(arr,n);
+        System.out.println("Unit of water can be stored: "+waterUnit);
+    }
+    static int trappingWater(int arr[], int n) {
+
+        int left[] = new int[n];
+        int right[] = new int[n];
+        int water = 0;
+        left[0] = arr[0];
+        for(int i=1;i<n;i++){
+            left[i] = Math.max(left[i - 1], arr[i]);
+        }
+        right[n - 1] = arr[n - 1];
+        for (int i = n - 2; i >= 0; i--)
+            right[i] = Math.max(right[i + 1], arr[i]);
+
+        for (int i = 0; i < n; i++)
+            water += Math.min(left[i], right[i]) - arr[i];
+
+        return water;
+
+    }
+
+19. Chocolate distribution problem:-
+
+	Given an array of n integers where each value represents the number of chocolates in a packet. Each packet can have a variable number of chocolates. There are m students, the task is to distribute chocolate packets such that: 
+    Each student gets one packet.
+    The difference between the number of chocolates in the packet with maximum chocolates and packet with minimum chocolates given to the students is minimum.
+	public static void main(String[] args) {
+        int arr[] = {1,2,5,7,3};
+        int m = 3;  // Number of students
+        int n = arr.length;
+        int result = distribute_chocolate(arr,n,m);
+        System.out.println("The min diff is "+result);
+    }
+    static int distribute_chocolate(int []arr,int n,int m){
+        Arrays.sort(arr);
+        int min = Integer.MAX_VALUE;
+        for(int i=0;i<=(n-m);i++){
+                if((arr[m-1+i]-arr[i])<min){
+                    min = arr[m-1+i]-arr[i];
+                }
+        }
+        return min;
+    }
