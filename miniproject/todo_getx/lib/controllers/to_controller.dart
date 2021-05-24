@@ -13,7 +13,7 @@ class TodoController extends GetxController {
     }
 
     ever(todos, (_) {
-      GetStorage().write('todos', todos.toList());
+      GetStorage().write('todos', todos.toList().obs);
     });
     super.onInit();
   }
