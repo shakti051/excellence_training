@@ -1178,7 +1178,7 @@ printf("%d ",temp[i]);
 getch();
 }
 
-Rearrange an array such that ‘arr[j]’ becomes ‘i’ if ‘arr[i]’ is ‘j’ - 
+Rearrange an array such that \91arr[j]\92 becomes \91i\92 if \91arr[i]\92 is \91j\92 - 
 
 #include<stdio.h>
 #include<conio.h>
@@ -1280,7 +1280,7 @@ getch();
 }
 
 
-K’th Smallest/Largest Element in Unsorted Array - 
+K\92th Smallest/Largest Element in Unsorted Array - 
 
 #include<stdio.h>
 #include<conio.h>
@@ -2068,7 +2068,7 @@ int ceilSearch(int arr[], int low, int high, int x)
 
 Majority Element
 Write a function which takes an array and prints the majority element (if it exists), 
-otherwise prints “No Majority Element”. A majority element in an array A[] of size n is an element that appears more 
+otherwise prints \93No Majority Element\94. A majority element in an array A[] of size n is an element that appears more 
 than n/2 times (and hence there is at most one such element). 
 
 #include<stdio.h>
@@ -2742,7 +2742,7 @@ final 450:-
 }
 
 9. Find Inversion Count in an array.
- Inversion Count for an array indicates – how far (or close) the array is from being sorted. If the array is already sorted, then the inversion count is 0, but if the array is sorted in the reverse order, the inversion count is the maximum. 
+ Inversion Count for an array indicates \96 how far (or close) the array is from being sorted. If the array is already sorted, then the inversion count is 0, but if the array is sorted in the reverse order, the inversion count is the maximum. 
 Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j
 
 Input: N = 5, arr[] = {2, 4, 1, 3, 5}
@@ -3097,3 +3097,20 @@ public static void main(String[] args)
         }
         return min;
     }
+    
+    competative :- other
+    
+    1./**Finding sum of digits of a number until sum becomes single digit**/
+	public class DigitSum {
+    public static void main(String[] args) {
+        int n = 564;
+        System.out.println(digSum(n));
+    }
+    static int digSum(int n)
+    {
+        if (n == 0)
+            return 0;
+        return (n % 9 == 0) ? 9 : (n % 9);
+    }
+}
+
