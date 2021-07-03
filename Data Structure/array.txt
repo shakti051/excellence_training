@@ -2276,7 +2276,6 @@ void maxTripletSum(int arr[], int n,int sum)
 }
 
 1. Find missing number in an array:- 
-
     public class MissingElement {
     public static void main(String[] args) {
        int  arr[] = {1, 2, 4, 6, 3, 7, 8,10,9};
@@ -3127,6 +3126,22 @@ public static void main(String[] args)
         if (n == 0)
             return 0;
         return (n % 9 == 0) ? 9 : (n % 9);
+    }
+}
+
+2. /**Length of the Longest Consecutive 1s in Binary Representation**/
+
+    public class LongOne {
+    public static void main(String[] args) {
+        int number,count =0;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ehter number: ");
+        number = scanner.nextInt();
+        while (number>0){
+            number = number&(number<<1);
+            count++;
+        }
+        System.out.println("The longest consecutive one: "+count);
     }
 }
 
