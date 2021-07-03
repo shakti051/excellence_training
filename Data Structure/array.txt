@@ -3145,3 +3145,49 @@ public static void main(String[] args)
     }
 }
 
+3. Convert Roman to decimal 
+
+    public static void main(String[] args) {
+     String roman = "XLIX";
+     int num = romanToInt(roman);
+        System.out.println("The num is : "+num);
+    }
+    public static int romanToInt(String s) {
+        Map<Character, Integer> map = new HashMap();
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+
+        int result = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (i > 0 && map.get(s.charAt(i)) > map.get(s.charAt(i - 1))) {
+                result += map.get(s.charAt(i)) - 2 * map.get(s.charAt(i - 1));
+            } else {
+                result += map.get(s.charAt(i));
+            }
+        }
+        return result;
+    }
+    
+    4. /**Count number of bits to be flipped to convert A to B**/
+    public class FlipBits {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter first num: ");
+        int a  = scanner.nextInt();
+        System.out.print("Enter second num: ");
+        int b = scanner.nextInt();
+        int flip = a^b;
+        int count =0;
+        while (flip>0){
+            flip = flip&(flip-1); /**count number of one**/
+            count++;
+        }
+        System.out.println("The flip bits are: "+count);
+    }
+}
+
