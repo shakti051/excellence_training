@@ -998,4 +998,39 @@ public static void main(String[] args) {
         return suffix;
     }
     
+    9. Reverse a string
     
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter String: ");
+        String str = scanner.nextLine();
+        String words[]= str.split(" ");
+        for (int i= words.length-1 ;i>=0;i--)
+            System.out.print(words[i]+" ");
+    }
+    
+    Enter String: Hello shubham tripathi 
+    output	: tripathi shubham Hello
+    
+    10. Reverse words of a string:-
+    
+        public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter string: ");
+        String str= scanner.nextLine();
+        String reverseString = "";
+        String [] words = str.split(" ");
+        for (int i=0;i<words.length;i++){
+            String word = words[i];
+            String reverseWord = "";
+            for (int j= word.length()-1 ;j>=0; j--){
+                  reverseWord += word.charAt(j);
+            }
+            reverseString += reverseWord+ " ";
+        }
+        System.out.println("reversed string: "+reverseString);
+    }
+    
+     Enter string: My name is Ramesh
+     reversed string: yM eman si hsemaR 
+

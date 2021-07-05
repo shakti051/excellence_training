@@ -3202,3 +3202,49 @@ public static void main(String[] args)
     }
 }
 
+6. /**Maximum Product Subarray**/
+    public static void main(String[] args) {
+        int arr[] = { 1, -2, -3, 0, 7, -8, -2 };
+        int max = arr[0];
+        for (int i=0;i<arr.length;i++){
+            int mul = arr[i];
+            for (int j=i+1;j<arr.length;j++){
+                mul = mul *arr[j];
+                max = Math.max(mul,max);
+            }
+        }
+        System.out.println("The max sum: "+max);
+    }
+    
+    
+    7. /**Write a program that, given an array A[] of n numbers and another number x,
+     * determines whether or not there exist two elements in S whose sum is exactly x.**/
+    public static void main(String[] args) {
+        int arr[] = { 1, 4, 45, 6, 10, 8};
+        int k = 16;
+        for (int i=0;i<arr.length;i++){
+            for (int j=i+1;j<arr.length;j++){
+                if (arr[i]+arr[j]==k)
+                    System.out.println(arr[i] +" "+arr[j]);
+            }
+        }
+    }
+    
+    8. /**Write a program that, given an array A[] of n numbers and another number x,
+     * determines whether or not there exist two elements in S whose sum is exactly x.**/
+        
+        public static void main(String[] args) {
+        int arr[] = {1, 4, 45, 6, 10, 8, 8};
+        int sum = 16;
+        Set<Integer> s = new HashSet<Integer>();
+        for (int i = 0; i < arr.length; i++) {
+            int temp = sum - arr[i];
+            if (s.contains(temp)) {
+                System.out.println(arr[i] + ", " + temp);
+            } else {
+                s.add(arr[i]);
+            }
+        }
+    }
+    
+    

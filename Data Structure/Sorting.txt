@@ -346,3 +346,46 @@ int partition(int a[],int low,int up)
 }
 
 
+final 450
+
+1. /**Given three distinct numbers A, B and C. Find the number with value in middle (Try to do it with minimum comparisons).**/
+    public static void main(String[] args) {
+        int a = 20, b = 30, c = 40;
+        
+        if((a>b && a<c)||(a>c && a<b))
+            System.out.println(a);
+        else if((b>a && b<c)||(b>c && b<a))
+            System.out.println(b);
+        else System.out.println(c);;
+    }
+    
+ 2. /**Find first and last index of target element in sorted array**/
+    public static void main(String[] args) {
+        int arr[] = {1, 3, 5, 5, 5, 5, 67, 123, 125};
+        int x = 5;
+        int first = -1, last = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == x) {
+                last = i;
+                if (first == -1)
+                    first = i;
+            }
+        }
+        System.out.println("first: " + first + ",last: " + last);
+    }
+    
+       
+    3. /**Given an array Arr of N positive integers.
+     * Your task is to find the elements whose value is equal to that of its index value.*/
+      
+      public static void main(String[] args) {
+      int  arr[] = {15, 2, 45, 4,12, 7};
+        ArrayList<Integer> val = new ArrayList<>();
+        for (int i=0;i< arr.length;i++){
+            if (arr[i]==i+1)
+                val.add(arr[i]);
+        }
+        System.out.println(val);
+    }
+    
+    
