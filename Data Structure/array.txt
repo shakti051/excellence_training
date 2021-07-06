@@ -3247,4 +3247,106 @@ public static void main(String[] args)
         }
     }
     
+9. /**Remove repeated elements from array**/
+    public static void main(String[] args) {
+      int[]  arr = {9, 2, 7, 4, 7};
+        Set<Integer> set = new HashSet<>();
+        for (int i=0;i<arr.length;i++){
+            set.add(arr[i]);
+        }
+        System.out.println(set);
+    }
     
+10. /**Remove repeated word in string array.**/
+    public static void main(String[] args) {
+        String str = "big black bug bit a big black dog on his big black nose";
+        String[]words = str.split(" ");
+        Set<String> set = new HashSet<>();
+        for (int i=0;i<words.length;i++){
+            set.add(words[i]);
+        }
+        System.out.println(set);
+    }
+    
+ 11. /**Print repeated elements of an array**/
+    public static void main(String[] args) {
+        int []arr= {2, 10,10, 100, 2, 10, 11,2,11,2};
+        Set<Integer> set = new HashSet<>();
+        for (int i=0;i<arr.length;i++){
+            for (int j=i+1;j<arr.length;j++){
+                if (arr[i]==arr[j])
+                    set.add(arr[i]);
+            }
+        }
+        System.out.println(set);
+    }
+    
+ 12. /**Print repeated words from string Array**/
+       public static void main(String[] args) {
+        String[] words = {"big","black","bug","black","dog","on","big"};
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < words.length; i++) {
+            for (int j = i + 1; j < words.length; j++) {
+                if (words[i] == words[j])
+                    set.add(words[i]);
+            }
+        }
+        System.out.println(set);
+    }
+    
+13. /**Find repeating and missing element in an array.**/
+    public static void main(String[] args) {
+        int arr[] = {1, 2, 2, 4};
+        int n = arr.length;
+        int sum = n * (n + 1) / 2;
+        int sum_arr = 0;
+        int repeating = -1;
+        Arrays.sort(arr);
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] == arr[i - 1]) {
+                repeating = arr[i];
+                break;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            sum_arr += arr[i];
+        }
+        int missing = sum + repeating - sum_arr;
+        System.out.println("repeating: " + repeating + ", missing: " + missing);
+    }
+    
+ 14. /**
+     * Find a pair with given difference.
+     **/
+    public static void main(String[] args) {
+        int arr[] = {5, 20, 3, 2, 5, 80};
+        int diff = 78;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (Math.abs(arr[i] - arr[j]) == diff) {
+                    System.out.println(arr[i] + "  " + arr[j]);
+                    return;
+                }
+            }
+        }
+
+    }
+    
+ 15. /**Find a pair with given difference.**/
+    public static void main(String[] args) {
+        int arr[] = {5, 20, 3, 2, 5, 80};
+        int diff = 78;
+        int i = 0, j = 1;
+        Arrays.sort(arr);
+        while (i < arr.length && j < arr.length) {
+            if (arr[j] - arr[i] == diff) {
+                System.out.println(arr[i] + " " + arr[j]);
+                return;
+            } else if (arr[j] - arr[i] < diff)
+                j++;
+            else i++;
+        }
+    }
+    
+                        
+                     
