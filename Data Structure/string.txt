@@ -1034,3 +1034,64 @@ public static void main(String[] args) {
      Enter string: My name is Ramesh
      reversed string: yM eman si hsemaR 
 
+10. /**Print Repeated charactes from a string**/
+        public static void main(String[] args) {
+        String str = "helloshubko";
+        char[] str_ch = str.toCharArray();
+        Set<Character> set = new HashSet<>();
+        for (int i=0;i< str_ch.length;i++){
+            for (int j=i+1;j< str_ch.length;j++){
+                if (str_ch[i]==str_ch[j])
+                       set.add(str_ch[i]);
+            }
+
+        }
+        System.out.println(set);
+    }
+    
+ 11. /**Remove Repeated charactes from a string**/
+        public static void main(String[] args) {
+        String str = "helloshubko";
+        char[] str_ch = str.toCharArray();
+        Set<Character> set = new HashSet<>();
+        for (int i=0;i< str_ch.length;i++){
+            set.add(str_ch[i]);
+        }
+        System.out.println(set);
+    }   
+    
+12.     /**Print non repeated words from string Array**/
+        public static void main(String[] args) {
+        String[] words = {"big","black","bug","black","dog","on","big","hello"};
+        for (int i = 0; i < words.length; i++) {
+            int count =0;
+            for (int j = 0; j < words.length; j++) {
+                if (words[i] == words[j] && i!=j)
+                {count++;break;}
+            }
+            if (count==0)
+                System.out.print(words[i]+" ");
+        }
+
+    }
+    
+ 13. /**Print non Repeating charactes from a string**/
+    public static void main(String[] args) {
+        String str = "helloshubkoakzx";
+        char[] str_ch = str.toCharArray();
+
+        for (int i=0;i< str_ch.length;i++){
+            int count =0;
+            for (int j=0;j< str_ch.length;j++){
+                if (str_ch[i]==str_ch[j] && i!=j)
+                {count++;
+                break;
+                }
+            }
+              if (count==0)
+                  System.out.print(str_ch[i]+" ");
+        }
+    }
+    
+           
+    
