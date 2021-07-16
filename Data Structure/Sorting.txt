@@ -388,4 +388,108 @@ final 450
         System.out.println(val);
     }
     
+4.  /**Find four elements that sum to a given value*/
+    public static void main(String[] args) {
+        int arr[] = { 1, 2, -3, 4, -2, -1, 3 };
+        int n = arr.length;
+        int targetSum = 3;
+        int start, end;
+        Arrays.sort(arr);
+
+        for (int i = 0; i < n - 3; i++)
+        {
+            for (int j = i + 1; j < n - 2; j++)
+            {
+                start = j + 1;
+                end = n - 1;
+                while (start < end)
+                {
+                    if (arr[i] + arr[j] + arr[start] + arr[end] == targetSum)
+                    {
+                        System.out.println(arr[i]+" "+arr[j]+" "+arr[start]+" "+arr[end]);
+                        start++;
+                        end--;
+                    }
+                    else if (arr[i] + arr[j] + arr[start] + arr[end] < targetSum)
+                        start++;
+                    else
+                        end--;
+                }
+            }
+        }
+    }
     
+5. /**Find Triplets with sum smaller than Target Sum*/
+     public static void main(String[] args) {
+         int arr[] = { 1, 2, -3, 4, -2};
+         int targetSum =1;
+         Arrays.sort(arr);
+         int tripletCount = 0;
+         
+         for(int i = 0; i < arr.length - 2; i++) {
+             int start = i + 1;
+             int end = arr.length - 1;
+             while(start < end) {
+                 int sum = arr[i] + arr[start] + arr[end];
+                 if(sum < targetSum) {
+                     tripletCount += end - start;
+                     start++;
+                 } else {
+                     end--;
+                 }
+             }
+         }
+         System.out.println(tripletCount);;
+
+    }
+    
+6. /**Merge two sorted arrays*/
+    public static void main(String[] args) {
+       int arr1[] = { 1, 3, 4, 5};
+       int arr2[] = {2, 4, 6, 8};
+       int arr3[] = new int[arr1.length+ arr2.length];
+       int i=0,j=0,k=0;
+       while (i< arr1.length && j< arr2.length ){
+           if (arr1[i]<arr2[j])
+               arr3[k++]=arr1[i++];
+           else arr3[k++]=arr2[j++];
+       }
+       while (i<arr1.length)
+           arr3[k++]=arr1[i++];
+       while (j<arr2.length)
+           arr3[k++]=arr2[j++];
+       for (i=0;i< arr3.length;i++)
+        System.out.print(arr3[i]+" ");
+    }
+
+7. /**Merge two sorted array with o(1) extra space.*/
+    public static void main(String[] args) {
+         int arr1[] = new int[] { 1, 5, 9, 10, 15, 20 };
+         int arr2[] = new int[] { 2, 3, 8, 13 };
+        int  n = arr1.length;
+        int m = arr2.length;
+        int i = 0, j = 0, k = n - 1;
+        while (i <= k && j < m) {
+            if (arr1[i] < arr2[j])
+                i++;
+            else {
+                int temp = arr2[j];
+                arr2[j] = arr1[k];
+                arr1[k] = temp;
+                j++;
+                k--;
+            }
+        }
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        for (i=0;i< arr1.length;i++)
+            System.out.print(arr1[i]+" ");
+        for (i=0;i< arr2.length;i++)
+            System.out.print(arr2[i]+" ");
+    }
+    
+        
+    
+                
+        
+        
