@@ -2914,7 +2914,7 @@ public class MaxProfit {
 
 13. Find if there is a subarray with 0 sum
 
-public class SumSubarray {
+    public class SumSubarray {
     public static void main(String[] args) {
      int arr[] = {4 ,2 ,-3, 1, 6};
      int n = arr.length;
@@ -2979,7 +2979,7 @@ public class SumSubarray {
 }
 
 15. Longest consecutive subsequence :- 
-public static void main(String[] args) {
+      public static void main(String[] args) {
       int   arr[] = {2,6,1,9,4,5,3};
       int n = arr.length;
       int result = findLongestConseqSubseq(arr,n);
@@ -3007,7 +3007,7 @@ public static void main(String[] args) {
 
 16. Find wether an array is subset of another:-
 
-public static void main(String[] args)
+     public static void main(String[] args)
     {
         int arr1[] = { 11, 1, 13, 21, 3, 7 };
         int arr2[] = { 11, 3, 7, 1 };
@@ -3092,7 +3092,7 @@ public static void main(String[] args)
 
 19. Chocolate distribution problem:-
 
-	Given an array of n integers where each value represents the number of chocolates in a packet. Each packet can have a variable number of chocolates. There are m students, the task is to distribute chocolate packets such that: 
+	Given an array of n integers where each value represents the number of chocolates in a packet. Each packet can have a variable number      of chocolates. There are m students, the task is to distribute chocolate packets such that: 
     Each student gets one packet.
     The difference between the number of chocolates in the packet with maximum chocolates and packet with minimum chocolates given to the students is minimum.
 	public static void main(String[] args) {
@@ -3219,7 +3219,7 @@ public static void main(String[] args)
     
     7. /**Write a program that, given an array A[] of n numbers and another number x,
      * determines whether or not there exist two elements in S whose sum is exactly x.**/
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         int arr[] = { 1, 4, 45, 6, 10, 8};
         int k = 16;
         for (int i=0;i<arr.length;i++){
@@ -3258,7 +3258,7 @@ public static void main(String[] args)
     }
     
 10. /**Remove repeated word in string array.**/
-    public static void main(String[] args) {
+       public static void main(String[] args) {
         String str = "big black bug bit a big black dog on his big black nose";
         String[]words = str.split(" ");
         Set<String> set = new HashSet<>();
@@ -3281,8 +3281,8 @@ public static void main(String[] args)
         System.out.println(set);
     }
     
- 12. /**Print repeated words from string Array**/
-       public static void main(String[] args) {
+ 12.   /**Print repeated words from string Array**/
+        public static void main(String[] args) {
         String[] words = {"big","black","bug","black","dog","on","big"};
         Set<String> set = new HashSet<>();
         for (int i = 0; i < words.length; i++) {
@@ -3294,8 +3294,8 @@ public static void main(String[] args)
         System.out.println(set);
     }
     
-13. /**Find repeating and missing element in an array.**/
-    public static void main(String[] args) {
+13.    /**Find repeating and missing element in an array.**/
+       public static void main(String[] args) {
         int arr[] = {1, 2, 2, 4};
         int n = arr.length;
         int sum = n * (n + 1) / 2;
@@ -3329,11 +3329,10 @@ public static void main(String[] args)
                 }
             }
         }
-
     }
     
  15. /**Find a pair with given difference.**/
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         int arr[] = {5, 20, 3, 2, 5, 80};
         int diff = 78;
         int i = 0, j = 1;

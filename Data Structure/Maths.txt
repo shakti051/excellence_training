@@ -370,7 +370,7 @@ public static void main(String[] args) {
 
 15. Program to check wether It is possible to make given sum with the given set of coin 
 
-public static void main(String[] args) {
+        public static void main(String[] args) {
         int  coins[]={1,3,9,2};
         int w = 5;
         boolean val = sumCoinWeight(coins,coins.length,w);

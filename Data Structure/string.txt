@@ -37,7 +37,7 @@ Prove Strings are immutable in Java.Immutable :- Means which cann't be altered.
 
 2. Reverse any string using string buffer
 
-public static void main(String[] args) {
+        public static void main(String[] args) {
         String str = "aabbbsssss";
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(str);
@@ -62,7 +62,7 @@ public static void main(String[] args) {
     }
 
 4. Sort string of characters
-public static void main(String[] args) {
+       public static void main(String[] args) {
         String str = "geeksforgeeks";
         char[] arr = str.toCharArray();
         Arrays.sort(arr);
@@ -160,8 +160,8 @@ Output : ste = "  geeksforgeeks"
     }
 
 11. Put spaces between words starting with capital letters
-Input : BruceWayneIsBatman
-Output : bruce wayne is batman
+        Input : BruceWayneIsBatman
+        Output : bruce wayne is batman
 
 	public static void main(String[] args) {
         String str ="BruceWayneIsBatman";
@@ -229,7 +229,7 @@ Output : bruce wayne is batman
 
 15. Check weather a given string is panagram or not
 
-public static void main(String[] args) {
+        public static void main(String[] args) {
         String str = "The quick brown fox jumps over the lazy dog";
         str = str.toUpperCase();
         str = str.replace(" ","");
@@ -716,7 +716,7 @@ String Swapping:- In String swapping we don't swap Strings we swap refrences.
 
 If there is no common prefix, return an empty string "".
 
-public static void main(String[] args) {
+       public static void main(String[] args) {
         String[] str= {"cat","catog","cattle"};
         String result = findLongestPrefix(str);
         System.out.println(result);
@@ -803,7 +803,7 @@ final 450-
         System.out.println("Longest prefix is: "+prefix);
     }
 
-    public static String longestCommonPrefix(String[] strs) {
+        public static String longestCommonPrefix(String[] strs) {
         if(strs.length==0)
             return "";
         String prefix = strs[0];
@@ -872,9 +872,9 @@ final 450-
         String str = scn.next();
         printPermutations(str,"");
         scn.close();
-    }
-
-    private static void printPermutations(String str, String asf) {
+           }
+           
+              private static void printPermutations(String str, String asf) {
                 if(str.length()==0){
                     System.out.println(asf);
                 return;
@@ -889,10 +889,9 @@ final 450-
     }
     
     
-
 5. Split binary string with equal '0' and '1'
 
-public static void main(String[] args) {
+       public static void main(String[] args) {
         String str = "0100110101";
         int n = str.length();
         System.out.println(maxSubStr(str, n));
@@ -976,10 +975,9 @@ public static void main(String[] args) {
         System.out.println(prefix);
     	}
     
-      static String longestPrefix(String str) {
+        static String longestPrefix(String str) {
         int length=str.length();
         String suffix = "";
-
         int mid=length/2;
         if(length<2){
             System.out.println("");
@@ -1013,7 +1011,6 @@ public static void main(String[] args) {
     output	: tripathi shubham Hello
     
     10. Reverse words of a string:-
-    
         public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter string: ");
@@ -1034,7 +1031,7 @@ public static void main(String[] args) {
      Enter string: My name is Ramesh
      reversed string: yM eman si hsemaR 
 
-10. /**Print Repeated charactes from a string**/
+10.     /**Print Repeated charactes from a string**/
         public static void main(String[] args) {
         String str = "helloshubko";
         char[] str_ch = str.toCharArray();
@@ -1092,6 +1089,3 @@ public static void main(String[] args) {
                   System.out.print(str_ch[i]+" ");
         }
     }
-    
-           
-    
