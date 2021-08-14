@@ -36,7 +36,6 @@ class _InterestPageState extends State<InterestPage> {
       setState(() {
         apiHit = true;
       });
-   //   print(interestModel.data[0].specialiation);
     });
   }
 
@@ -65,10 +64,7 @@ class _InterestPageState extends State<InterestPage> {
                   child: Text(interestModel.data[index].specialiation,
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 14)));
-            },
-          )
-        : Center(
-            child: CircularProgressIndicator(),
-          );
+            })
+        : Center(child: CircularProgressIndicator());
   }
 }
