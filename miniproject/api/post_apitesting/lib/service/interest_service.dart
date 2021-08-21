@@ -7,7 +7,7 @@ class InterestService {
   Future<InterestModel> getInterest() async {
     final apiUrl =
         "https://eduarno1.herokuapp.com/user/interest_get_profile_user_by_id";
-    Map<String,dynamic> data = {"user_id": "8HhW3K227WTfpybHH"};
+    Map<String,dynamic> data = {"user_id": "B8hhjxATrqCvYzk6g"};
     Map<String,String> header = {'Content-Type': 'application/json; charset=UTF-8'};
     return _post
         .post(Uri.parse(apiUrl),

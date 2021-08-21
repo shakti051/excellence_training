@@ -31,13 +31,14 @@ class InterestPage extends StatefulWidget {
 }
 
 class _InterestPageState extends State<InterestPage> {
-  InterestService apiInterest = InterestService();
+  InterestService apiInterest = InterestService.instance;
   InterestModel interestModel;
   
   bool apiHit = false;
   _getInterestList() async {
     return await apiInterest.getInterest().then((value) {
       interestModel = value;
+    //  print(interestModel.message);
       Provider.of<InterestProvider>(context, listen: false).toggleDone();
       // setState(() {
       //   apiHit = true;
@@ -61,27 +62,23 @@ class _InterestPageState extends State<InterestPage> {
               scrollDirection: Axis.vertical,
               itemCount: interestModel.data.length,
               itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                    onLongPress: () {
-                      Provider.of<InterestProvider>(context,listen: false).RemoveSkill(index);
-                    },
-                    leading: Text(interestModel.data[index].specialiation));
-                // InkWell(
-                //   onLongPress: () {
-                //     interestModel.data.removeAt(index);
-                //   },
-                //   child: Container(
-                //       margin: EdgeInsets.only(left: 8, bottom: 8),
-                //       padding:
-                //           EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                //       height: 40,
-                //       decoration: BoxDecoration(
-                //           color: Colors.green,
-                //           borderRadius: BorderRadius.all(Radius.circular(5))),
-                //       child: Text(interestModel.data[index].specialiation,
-                //           textAlign: TextAlign.center,
-                //           style: TextStyle(color: Colors.white, fontSize: 14))),
-                // );
+                return 
+                InkWell(
+                  onLongPress: () {
+                    interestModel.data.removeAt(index);
+                  },
+                  child: Container(
+                      margin: EdgeInsets.only(left: 8, bottom: 8),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                      child: Text(interestModel.data[index].specialiation,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white, fontSize: 14))),
+                );
               })
           : Center(child: CircularProgressIndicator()),
     );
