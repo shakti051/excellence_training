@@ -1,0 +1,19 @@
+void main() {
+  Human jenny = Human(startingHeight:15);
+  print(jenny.height);
+  jenny.talk("why is the sky blue");
+}
+
+class Human{
+ double height;
+  int age = 0;
+  
+  Human({double startingHeight}){
+    height = startingHeight;
+  }
+
+  void talk (String whatToSay){
+    print(whatToSay);
+  }
+}
+
