@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "532652161854",
+    "project_id": "eduarno-8c305",
+    "storage_bucket": "eduarno-8c305.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532652161854:android:2919164f6dd13be0f94a6f",
+        "android_client_info": {
+          "package_name": "com.rj.eduarno"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532652161854-2f6s1ajoim0khskq7p9v2k6gnm47fnkl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9kojFw_dBNy1tWirotX3aLXeL8mpICEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532652161854-2f6s1ajoim0khskq7p9v2k6gnm47fnkl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
