@@ -78,18 +78,18 @@ class _MyAppState extends State<MyApp> {
         accentColor: Colors.amber,
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
-        textTheme: ThemeData.light().textTheme.copyWith(
-            body1: TextStyle(
-              color: Color.fromRGBO(20, 51, 51, 1),
-            ),
-            body2: TextStyle(
-              color: Color.fromRGBO(20, 51, 51, 1),
-            ),
-            title: TextStyle(
-              fontSize: 20,
-              fontFamily: 'RobotoCondensed',
-              fontWeight: FontWeight.bold,
-            )),
+        // textTheme: ThemeData.light().textTheme.copyWith(
+        //     body1: TextStyle(
+        //       color: Color.fromRGBO(20, 51, 51, 1),
+        //     ),
+        //     body2: TextStyle(
+        //       color: Color.fromRGBO(20, 51, 51, 1),
+        //     ),
+        //     title: TextStyle(
+        //       fontSize: 20,
+        //       fontFamily: 'RobotoCondensed',
+        //       fontWeight: FontWeight.bold,
+        //     )),
       ),
       // home: CategoriesScreen(),
       initialRoute: '/', // default is '/'
