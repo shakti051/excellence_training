@@ -1,0 +1,102 @@
+name: vlcc
+description: VLCC Mobile
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  auto_size_text_field: ^1.0.1
+  badges: ^2.0.1
+  carousel_slider: ^4.0.0
+  contained_tab_bar_view: ^0.8.0
+  cupertino_icons: ^1.0.2
+  custom_navigator: ^0.3.0
+  dio: ^4.0.0
+  expansion_tile_card: ^2.0.0
+  file_picker: ^4.3.0
+  firebase_core: ^1.7.0
+  firebase_messaging: ^11.1.0
+  flutter:
+    sdk: flutter
+  flutter_downloader: ^1.7.0
+  flutter_spinkit: 5.1.0
+  flutter_svg: ^1.0.0
+  fluttertoast: ^8.0.8
+  google_maps_flutter: ^2.0.11
+  image_picker: ^0.8.4
+  intl: ^0.17.0
+  linter: any
+  lottie: ^1.2.0
+  mime_type: ^1.0.0
+  path_provider: ^2.0.5
+  percent_indicator: ^3.0.1
+  permission_handler: ^8.2.2
+  pinput: ^1.2.0
+  provider: ^6.0.1
+  shared_preferences: ^2.0.8
+  platform_device_id: ^1.0.1    
+  email_validator: ^2.0.1  
+  google_sign_in: ^5.0.0-nullsafety  
+  sqflite: ^2.0.0+4
+  keyboard_dismisser: ^2.0.0
+  url_launcher: ^6.0.12
+  dotted_border: ^2.0.0+1
+  page_transition: ^2.0.4
+  shimmer: ^2.0.0
+  otp_autofill: ^2.0.0
+  get: ^4.3.8
+  location: ^4.3.0
+  timeago: ^3.1.0
+  geolocator: ^8.0.0
+  geocoding: ^2.0.1  
+  geofence_service: ^3.4.1
+  enx_flutter_plugin: ^1.9.8
+  image_cropper: ^1.4.1
+  flutter_dotenv: ^5.0.2
+  google_place: ^0.4.3
+  flutter_local_notifications: ^9.1.4
+  jiffy: ^5.0.0
+  flutter_launcher_icons: ^0.9.2
+  tutorial_coach_mark: ^1.2.1
+  uuid: ^3.0.5
+  google_places_flutter: ^2.0.5
+  payumoney_pro_unofficial: ^0.0.9
+  wakelock: ^0.5.6
+  another_flushbar: ^1.10.28
+  audio_session: ^0.1.6+1
+
+
+dev_dependencies:
+  flutter_lints: ^1.0.4
+  flutter_test:
+    sdk: flutter
+
+flutter_icons:
+  android: false
+  ios: true
+  image_path: "assets/images/clinic-logo.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/
+    
+  fonts:
+    - family: Frutinger
+      fonts:
+        - asset: assets/fonts/Frutiger/Frutiger-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Frutiger/FrutigerSemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Frutiger/FrutigerBold.ttf
+          weight: 700
+    - family: Oswald
+      fonts:
+        - asset: assets/fonts/Oswald-Regular.ttf
+          weight: 500

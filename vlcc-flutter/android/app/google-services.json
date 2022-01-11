@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "850746334074",
+    "project_id": "vlcc-55fdf",
+    "storage_bucket": "vlcc-55fdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850746334074:android:75e90ddcc10c2fcc5914c3",
+        "android_client_info": {
+          "package_name": "com.vlcc.consumer.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850746334074-88unr46a61uf79ujmvennmfie97g21fv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtyv95cbpGmEcotqBHOnBCU5l0luo_wD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850746334074-88unr46a61uf79ujmvennmfie97g21fv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "850746334074-e8k2rhpomljk7bs081cnup47gampjr4u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vlcc"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
