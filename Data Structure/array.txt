@@ -3397,3 +3397,24 @@ public class MaxProfit {
             System.out.print(arr[(i + mod) % n] + " ");
     }
                             
+20. Second largest element in an array without any sorting algo
+     public static void main(String[] args) {
+       int arr[] = {9,8,15,7,6,5,4,3,2,1};
+       int largest = arr[0];
+       int second = arr[1];
+
+       if(second>largest){
+           largest = arr[1];
+           second = arr[0];
+       }
+       for (int i=2;i<arr.length;i++){
+           if(arr[i]> largest ){
+               second = largest;
+               largest = arr[i];
+           }else if(arr[i]>second){
+               second = arr[i];
+           }
+       }
+        System.out.println(second);
+    }
+
