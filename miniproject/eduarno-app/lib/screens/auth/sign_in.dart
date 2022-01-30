@@ -58,7 +58,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      autovalidate: _isFilled,
+    //  autovalidate: _isFilled,
       child: Scaffold(
         // resizeToAvoidBottomInset: false,
         body: ListView(
